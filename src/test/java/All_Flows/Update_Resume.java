@@ -68,7 +68,6 @@ public class Update_Resume {
     
     
     
-  //  driver.findElement(By.xpath("//p[@class='msg']")).getText();
     
     WebElement messageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@class='msg']")));
     String messageText = messageElement.getText();
@@ -80,8 +79,6 @@ public class Update_Resume {
         throw new RuntimeException("Test failed because the popup message did not contain 'Successfully'.");
 
     }
-    //driver.findElement(By.cssSelector(".dummyUploadNewCTA")).sendKeys("TEEMS_3.0\\Resume\\(Naresh) Resume 3+yers manual &automation testing ().pdf");
-   // Thread.sleep(3000);
 
 	
 
