@@ -16,6 +16,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.sikuli.script.FindFailed;
 import org.testng.annotations.Test;
 
@@ -29,7 +31,8 @@ public class Student_Fresh_Enrollment_Complete_Flow_dd_cheque_Discount extends L
 	public void Student_payment_complete_flow_dd_cheque_Discount() throws InterruptedException, FindFailed, HeadlessException, UnsupportedFlavorException, IOException {
 
 
-		
+	    WebDriverWait wait = new WebDriverWait(driver, 15);
+
 		String optionText2 = "DD/Cheque";
 		
 		Faker fk = new Faker();
@@ -92,7 +95,7 @@ public class Student_Fresh_Enrollment_Complete_Flow_dd_cheque_Discount extends L
 			    	Thread.sleep(3000);
 
 			      fiveDropdown.click();
-					UM.selectOptionByText(driver,  "Finance");
+					UM.selectOptionByText(driver,  "HR");
 	  
 			         
 					driver.findElement(By.xpath("//span[text()=' Next ']")).click();
@@ -109,16 +112,16 @@ public class Student_Fresh_Enrollment_Complete_Flow_dd_cheque_Discount extends L
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress1']")).sendKeys("hyd");
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress2']")).sendKeys("hyd");
 				      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingState']")).click();			
-						UM.selectOptionByText(driver,  "Telengana");
+						UM.selectOptionByText(driver,  "TELANGANA");
 
 						Thread.sleep(3000);
 
 					      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingCity']")).click();			
 	                     Thread.sleep(3000);
-	 					UM.selectOptionByText(driver,  "Hyderabad");
+	 					UM.selectOptionByText(driver,  "HYDERABAD");
 					  	Thread.sleep(3000);
 
-					      driver.findElement(By.xpath("//input[@ng-reflect-name='sMailingZipCode']")).sendKeys("500067");
+					      driver.findElement(By.xpath("//input[@formcontrolname='sMailingZipCode']")).sendKeys("500067");
 
 					      driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[1]/div[2]/div[1]/div/mat-checkbox/label/span[1]")).click();
 		                 Thread.sleep(4000);
@@ -237,7 +240,7 @@ public class Student_Fresh_Enrollment_Complete_Flow_dd_cheque_Discount extends L
 
 	 
 	      driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[5]/div/div/div/div/button[2]/span[1]")).click();
-	      Thread.sleep(4000);
+	      wait.until(ExpectedConditions.alertIsPresent());
 
 	      Alert alert = driver.switchTo().alert();
 
@@ -284,8 +287,8 @@ public class Student_Fresh_Enrollment_Complete_Flow_dd_cheque_Discount extends L
 			      driver.findElement(By.cssSelector("mat-select[formcontrolname='batchCode']")).click();			
 
 				Thread.sleep(3000);
-				UM.selectOptionByText(driver, "MBA_Batch");
-				System.out.println("Enrolled Batch is: MBA_Batch");
+				UM.selectOptionByText(driver, "MBA-009");
+				System.out.println("Enrolled Batch is: MBA-009");
 				Thread.sleep(4000);
 
 				  WebElement typeOfPayment = driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body/div/div/div/mat-vertical-stepper/div[2]/div/div/div/form[1]/div/div[6]/div[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]"));
@@ -313,7 +316,7 @@ public class Student_Fresh_Enrollment_Complete_Flow_dd_cheque_Discount extends L
 						driver.findElement(By.cssSelector("mat-select[formcontrolname='discountReason']")).click();
 						Thread.sleep(3000);
 
-						UM.selectOptionByText(driver, "enrollment discounts");
+						UM.selectOptionByText(driver, "DUPLICATE DISCOUNT");
 						
 						Thread.sleep(3000);
 				        actions.sendKeys(Keys.TAB).perform();
@@ -410,7 +413,7 @@ public class Student_Fresh_Enrollment_Complete_Flow_dd_cheque_Discount extends L
 		               driver.findElement(By.cssSelector("mat-select[formcontrolname='bankName']")).click();
 
 	                Thread.sleep(3000);
-	                UM.selectOptionByText(driver, "HSBC");
+	                UM.selectOptionByText(driver, "Canara Bank");
 	            	
 	                Thread.sleep(3000);
 	                driver.findElement(By.xpath("//input[@formcontrolname='totalAmountPaid']")).sendKeys(fstinstallmentString);	
@@ -558,7 +561,7 @@ public class Student_Fresh_Enrollment_Complete_Flow_dd_cheque_Discount extends L
 		               // Iterate through the parts to find the desired text
 		               String desiredText = null;
 		               for (String part : parts) {
-		                   if (part.startsWith("NARE")) {
+		                   if (part.startsWith("NDH3")) {
 		                       desiredText = part;
 		                       break;
 		                   }

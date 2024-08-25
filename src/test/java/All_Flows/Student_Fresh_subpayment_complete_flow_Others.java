@@ -42,6 +42,7 @@ public class Student_Fresh_subpayment_complete_flow_Others extends Login  {
 		String optionText2 = "Others";
 		Faker fk = new Faker();
 		Universal_methods UM=new Universal_methods ();
+	    WebDriverWait wait = new WebDriverWait(driver, 15);
 
 	  Actions actions = new Actions(driver);
 	   String chequeNumber = fk.number().digits(8); // Example: Generate an 8-digit number

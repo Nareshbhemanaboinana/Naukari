@@ -40,7 +40,8 @@ public class Student_Fresh_subpayment_complete_flow_dd_cheque extends Login  {
 	public void Student_payment_complete_flow_DD_Cheque() throws InterruptedException, FindFailed {
 		
 		String optionText2 = "DD/Cheque";
-		
+	    WebDriverWait wait = new WebDriverWait(driver, 15);
+
 		Faker fk = new Faker();
 		Universal_methods UM=new Universal_methods ();
 
@@ -50,7 +51,7 @@ public class Student_Fresh_subpayment_complete_flow_dd_cheque extends Login  {
 	    String neftReferenceNumber = fk.regexify("[A-Z0-9]{10}"); // Example: Generate a 10-character alphanumeric string
 	    String rtgsReferenceNumber = fk.regexify("[A-Z0-9]{10}"); // Example: Generate a 10-character alphanumeric string
 	    String referenceNumber = fk.regexify("[A-Z0-9]{12}"); // Example: Generate a 12-character alphanumeric string
-	    WebDriverWait wait = new WebDriverWait(driver, 10);
+	//    WebDriverWait wait = new WebDriverWait(driver, 10);
 
 	String Name = fk.name().firstName();
 	  WebElement svenextt = driver.findElement(By.xpath("//a[@href='#/admin/collegelevel']"));
@@ -83,7 +84,7 @@ public class Student_Fresh_subpayment_complete_flow_dd_cheque extends Login  {
 			      driver.findElement(By.xpath("//input[@formcontrolname='sMobileNo']")).sendKeys("9999999999");
 			      driver.findElement(By.xpath("//input[@formcontrolname='sTelephoneNo']")).sendKeys("99999999999");
 			      driver.findElement(By.xpath("//input[@formcontrolname='sEmail']")).sendKeys(Name+"@yopmail.com");
-			      driver.findElement(By.xpath("//input[@formcontrolname='iDOB']")).sendKeys("07/06/1994");
+			      driver.findElement(By.xpath("//input[@formcontrolname='DOC']")).sendKeys("07/06/1994");
 			      secoendDropdown.click();
 					UM.selectOptionByText(driver,  "Male");
 
@@ -102,7 +103,7 @@ public class Student_Fresh_subpayment_complete_flow_dd_cheque extends Login  {
 			    	Thread.sleep(3000);
 
 			      fiveDropdown.click();
-					UM.selectOptionByText(driver,  "Finance");
+					UM.selectOptionByText(driver,  "HR");
 	  
 			         
 					driver.findElement(By.xpath("//span[text()=' Next ']")).click();
@@ -119,16 +120,16 @@ public class Student_Fresh_subpayment_complete_flow_dd_cheque extends Login  {
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress1']")).sendKeys("hyd");
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress2']")).sendKeys("hyd");
 				      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingState']")).click();			
-						UM.selectOptionByText(driver,  "Telengana");
+						UM.selectOptionByText(driver,  "TELANGANA");
 
 						Thread.sleep(3000);
 
 					      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingCity']")).click();			
 	                     Thread.sleep(3000);
-	 					UM.selectOptionByText(driver,  "Hyderabad");
+	 					UM.selectOptionByText(driver,  "HYDERABAD");
 					  	Thread.sleep(3000);
 
-					      driver.findElement(By.xpath("//input[@ng-reflect-name='sMailingZipCode']")).sendKeys("500067");
+					      driver.findElement(By.xpath("//input[@formcontrolname='sMailingZipCode']")).sendKeys("500067");
 
 					      driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[1]/div[2]/div[1]/div/mat-checkbox/label/span[1]")).click();
 		                 Thread.sleep(4000);
@@ -294,8 +295,8 @@ public class Student_Fresh_subpayment_complete_flow_dd_cheque extends Login  {
 			      driver.findElement(By.cssSelector("mat-select[formcontrolname='batchCode']")).click();			
 
 				Thread.sleep(3000);
-				UM.selectOptionByText(driver, "MBA_Batch009");
-				System.out.println("Enrolled Batch is:MBA_Batch009");
+				UM.selectOptionByText(driver, "HR_Batch01");
+				System.out.println("Enrolled Batch is:HR_Batch01");
 				Thread.sleep(4000);
 
 				  WebElement typeOfPayment = driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body/div/div/div/mat-vertical-stepper/div[2]/div/div/div/form[1]/div/div[6]/div[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]"));
@@ -378,7 +379,7 @@ public class Student_Fresh_subpayment_complete_flow_dd_cheque extends Login  {
 	                  
 	                driver.findElement(By.cssSelector("mat-select[formcontrolname='bankName']")).click();
 	                Thread.sleep(3000);
-	                UM.selectOptionByText(driver, "HSBC");
+	                UM.selectOptionByText(driver, "Canara Bank");
 	            	
 	                Thread.sleep(3000);
 	                driver.findElement(By.xpath("//input[@formcontrolname='totalAmountPaid']")).sendKeys(fstinstallment);	
@@ -530,7 +531,7 @@ public class Student_Fresh_subpayment_complete_flow_dd_cheque extends Login  {
 		               // Iterate through the parts to find the desired text
 		               String desiredText = null;
 		               for (String part : parts) {
-		                   if (part.startsWith("NARE")) {
+		                   if (part.startsWith("NDH3")) {
 		                       desiredText = part;
 		                       break;
 		                   }
@@ -588,7 +589,7 @@ public class Student_Fresh_subpayment_complete_flow_dd_cheque extends Login  {
 				//Loop through the options to find the desired one
 				//Loop through the options to find the desired one
 				for (int i=0; i<=placeofs.size()-1; i++) {
-					placeofs.get(1).click();
+					placeofs.get(0).click();
 					Thread.sleep(3000); 
 					break;
 				   
@@ -643,6 +644,8 @@ public class Student_Fresh_subpayment_complete_flow_dd_cheque extends Login  {
 				Thread.sleep(3000); 
 				zz.executeScript("window.scrollBy(0,600)");
 				Thread.sleep(3000); 
+	 			driver.findElement(By.xpath("//span[text()=' Close ']")).click();
+				Thread.sleep(3000); 
 
 	 			driver.findElement(By.xpath("//span[text()=' Save and Print ']")).click();
 
@@ -661,7 +664,7 @@ public class Student_Fresh_subpayment_complete_flow_dd_cheque extends Login  {
              // Iterate through the parts to find the desired text
              String desiredTextt = null;
              for (String part : partss) {
-                 if (part.startsWith("NANA")) {
+                 if (part.startsWith("NDH3")) {
                      desiredTextt = part;
                      break;
                  }

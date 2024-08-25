@@ -33,11 +33,13 @@ public class Re_Enrollment extends Login{
 	Universal_methods UM=new Universal_methods ();
 
   Actions actions = new Actions(driver);
-    String chequeNumber = fk.number().digits(8); // Example: Generate an 8-digit number
+  /*  String chequeNumber = fk.number().digits(8); // Example: Generate an 8-digit number
     String ackNumber = fk.number().digits(10); // Example: Generate a 10-digit number
     String neftReferenceNumber = fk.regexify("[A-Z0-9]{10}"); // Example: Generate a 10-character alphanumeric string
     String rtgsReferenceNumber = fk.regexify("[A-Z0-9]{10}"); // Example: Generate a 10-character alphanumeric string
     String referenceNumber = fk.regexify("[A-Z0-9]{12}"); // Example: Generate a 12-character alphanumeric string
+    String MobileNO = fk.regexify("[0-9]{10}"); // Example: Generate a 12-character alphanumeric string
+    String TelephNo = fk.regexify("[0-9]{11}"); // Example: Generate a 12-character alphanumeric string
 
 String Name = fk.name().firstName();
 		  WebElement svenextt = driver.findElement(By.xpath("//a[@href='#/admin/collegelevel']"));
@@ -70,10 +72,10 @@ String Name = fk.name().firstName();
 	        stdntName.sendKeys(Name);
 			//Thread.sleep(3000);
 		      //driver.findElement(By.xpath("//input[@formcontrolname='sName']")).sendKeys(Name);
-		      driver.findElement(By.xpath("//input[@formcontrolname='sMobileNo']")).sendKeys("9999999999");
-		      driver.findElement(By.xpath("//input[@formcontrolname='sTelephoneNo']")).sendKeys("99999999999");
+		      driver.findElement(By.xpath("//input[@formcontrolname='sMobileNo']")).sendKeys(MobileNO);
+		      driver.findElement(By.xpath("//input[@formcontrolname='sTelephoneNo']")).sendKeys(TelephNo);
 		      driver.findElement(By.xpath("//input[@formcontrolname='sEmail']")).sendKeys(Name+"@yopmail.com");
-		      driver.findElement(By.xpath("//input[@formcontrolname='iDOB']")).sendKeys("07/06/1994");
+		      driver.findElement(By.xpath("//input[@formcontrolname='DOC']")).sendKeys("07/06/1994");
 		      secoendDropdown.click();
 				UM.selectOptionByText(driver,  "Male");
 
@@ -87,6 +89,8 @@ String Name = fk.name().firstName();
 		     	Thread.sleep(3000);
 
 		      fourthDropdown.click();
+		    	Thread.sleep(2000);
+
 				UM.selectOptionByText(driver,  "MBA");
 
 		    	Thread.sleep(3000);
@@ -94,7 +98,9 @@ String Name = fk.name().firstName();
 		    	
 		    	
 		      fiveDropdown.click();
-				UM.selectOptionByText(driver,  "Finance");
+		    	Thread.sleep(2000);
+
+				UM.selectOptionByText(driver,  "HR");
   
 		         
 				driver.findElement(By.xpath("//span[text()=' Next ']")).click();
@@ -111,7 +117,8 @@ String Name = fk.name().firstName();
 			      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress1']")).sendKeys("hyd");
 			      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress2']")).sendKeys("hyd");
 			      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingState']")).click();			
-					UM.selectOptionByText(driver,  "Telengana");
+					UM.selectOptionByText(driver,  "TELANGANA");
+                    Thread.sleep(3000);
 
 			//		Thread.sleep(3000);
 			        WebElement imail = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("mat-select[formcontrolname='iMailingCity']")));
@@ -119,10 +126,12 @@ String Name = fk.name().firstName();
 			        imail.click();
 				    //  driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingCity']")).click();			
                      Thread.sleep(3000);
- 					UM.selectOptionByText(driver,  "Hyderabad");
+ 					UM.selectOptionByText(driver,  "HYDERABAD");
 				  	//Thread.sleep(3000);
-			        WebElement zipcode = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@ng-reflect-name='sMailingZipCode']")));
-			        zipcode.sendKeys("500067");
+				      driver.findElement(By.xpath("//input[@formcontrolname='sMailingZipCode']")).sendKeys("500067");
+
+			  //      WebElement zipcode = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@ng-reflect-name='sMailingZipCode']")));
+			    //    zipcode.sendKeys("500067");
 				  //    driver.findElement(By.xpath("//input[@ng-reflect-name='sMailingZipCode']")).sendKeys("500067");
 
 				      driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[1]/div[2]/div[1]/div/mat-checkbox/label/span[1]")).click();
@@ -186,12 +195,16 @@ for (int i=0; i<=Options2s.size()-1; i++) {
   	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[2]/div/button[2]/span[1]")).click();
 				  	Thread.sleep(3000);
 driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[5]/div/div/div/form/div/div[1]/div[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
+Thread.sleep(3000);
+
 UM.selectOptionByText(driver,  "0");
   	
 	
 	Thread.sleep(3000);
 
 driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[5]/div/div/div/form/div/div[1]/div[2]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
+Thread.sleep(3000);
+
 UM.selectOptionByText(driver,  "0");
 Thread.sleep(3000);
 driver.findElement(By.xpath("//input[@formcontrolname='sWorkingAs']")).sendKeys("abc");
@@ -242,7 +255,10 @@ zz.executeScript("window.scrollBy(0,500)");
 
  
       driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[5]/div/div/div/div/button[2]/span[1]")).click();
-      Thread.sleep(5000);
+    //  WebDriverWait wait = new WebDriverWait(driver, 10);
+
+    wait.until(ExpectedConditions.alertIsPresent());
+
 
       Alert alert = driver.switchTo().alert();
 
@@ -286,8 +302,8 @@ zz.executeScript("window.scrollBy(0,500)");
 		      driver.findElement(By.cssSelector("mat-select[formcontrolname='batchCode']")).click();			
 
 			Thread.sleep(3000);
-			UM.selectOptionByText(driver, "MBA_Batch009");
-			System.out.println("Enrolled Batch is: MBA_Batch009");
+			UM.selectOptionByText(driver, "MBA-HR_B0001");
+			System.out.println("Enrolled Batch is: MBA-HR_B0001");
 			//Thread.sleep(3000);
 
 			  WebElement typeOfPayment = driver.findElement(By.cssSelector("mat-select[formcontrolname='typeOfPayment']"));
@@ -295,6 +311,8 @@ zz.executeScript("window.scrollBy(0,500)");
 		        wait.until(ExpectedConditions.elementToBeClickable(typeOfPayment)).click(); 
 		        // Click on the dropdown
 			 //  typeOfPayment.click();
+				Thread.sleep(3000);
+
 				UM.selectOptionByText(driver,  "2 Installments");
 				Thread.sleep(3000);
 
@@ -521,7 +539,7 @@ zz.executeScript("window.scrollBy(0,500)");
 	               // Iterate through the parts to find the desired text
 	               String desiredText = null;
 	               for (String part : parts) {
-	                   if (part.startsWith("NARE")) {
+	                   if (part.startsWith("BPRR")) {
 	                       desiredText = part;
 	                       break;
 	                   }
@@ -536,14 +554,16 @@ zz.executeScript("window.scrollBy(0,500)");
 	               
 				   Thread.sleep(5000);
 
-				
+				*/
+  
+            String desiredText=     UM.create_Enquiry_Enroll(driver);
 				   driver.navigate().refresh();
 
 	
 				   Thread.sleep(5000);
 				   
 				   WebElement Studentprofile = driver.findElement(By.xpath("//a[@href='#/student-management/student']"));
-					//JavascriptExecutor zz = (JavascriptExecutor) driver;
+					JavascriptExecutor zz = (JavascriptExecutor) driver;
 					zz.executeScript("arguments[0].scrollIntoView()", Studentprofile);
 					Thread.sleep(5000);
 					zz.executeScript("arguments[0].click()", Studentprofile);
@@ -565,7 +585,7 @@ zz.executeScript("window.scrollBy(0,500)");
 				driver.findElement(By.cssSelector("mat-select[formcontrolname='studentStatusId']")).click();
 				Thread.sleep(3000);
 
-				UM.selectOptionByText(driver, "Suspended");
+				UM.selectOptionByText(driver, "suspended");
 				Thread.sleep(3000);
 
 				zz.executeScript("window.scrollBy(0,500)");
@@ -573,22 +593,26 @@ zz.executeScript("window.scrollBy(0,500)");
 
 				driver.findElement(By.xpath("//span[text()=' Save ']")).click();
 
-    
+				  WebElement svenextt = driver.findElement(By.xpath("//a[@href='#/admin/collegelevel']"));
+				//	JavascriptExecutor zz = (JavascriptExecutor) driver;
+					zz.executeScript("arguments[0].scrollIntoView()", svenextt);
+					Thread.sleep(6000);
+					zz.executeScript("arguments[0].click()", svenextt);
+					Thread.sleep(3000);
 
 
 
 
-                   WebElement indvlstd = driver.findElement(By.xpath("//a[@href='#/fresh/individualf']"));
+
+					  WebElement svenexxs0t = driver.findElement(By.xpath("//a[@href='#/fresh/individualf']"));
 					//JavascriptExecutor zz = (JavascriptExecutor) driver;
-				zz.executeScript("arguments[0].scrollIntoView()", indvlstd);
+				zz.executeScript("arguments[0].scrollIntoView()", svenexxs0t);
 					Thread.sleep(5000);
-					zz.executeScript("arguments[0].click()", indvlstd);
+					zz.executeScript("arguments[0].click()", svenexxs0t);
 					Thread.sleep(6000);
 			
 
-			   driver.findElement(By.cssSelector("mat-select[formcontrolname='enrollmentType']")).click();
-				   
-				UM.selectOptionByText(driver, "Re Enroll");
+					driver.findElement(By.xpath("//span[text()='Re Enroll']")).click();
 				Thread.sleep(3000);
 
 				driver.findElement(By.xpath("//input[@formcontrolname='studentID']")).sendKeys(desiredText);
@@ -629,6 +653,8 @@ zz.executeScript("window.scrollBy(0,500)");
 	   
 				        // Click on the dropdown
 					   formFilledByy.click();
+						Thread.sleep(3000);
+
 					UM.selectOptionByText(driver,  "Parents");
 					Thread.sleep(3000);
 
@@ -651,6 +677,9 @@ zz.executeScript("window.scrollBy(0,500)");
 		               inputFieldd.sendKeys(Keys.CONTROL + "v");
 		               
 					   Thread.sleep(3000);
+						zz.executeScript("window.scrollBy(0,500)");
+						   Thread.sleep(3000);
+
 						driver.findElement(By.xpath("//span[text()=' Preview Receipt ']")).click();
 						   Thread.sleep(3000);
 
@@ -668,6 +697,39 @@ zz.executeScript("window.scrollBy(0,500)");
 		               String ReceiptNos= driver.findElement(By.xpath("/html/body/div[4]/div/div[2]")).getText();
 		               System.out.println("Stundent Re-Enrollment Receipt No:"+ReceiptNos);
 
+						Thread.sleep(3000);
+
+						driver.navigate().refresh();
+						Thread.sleep(3000);
+		
+						  WebElement Studentprofile1 = driver.findElement(By.xpath("//a[@href='#/student-management/student']"));
+							//JavascriptExecutor zz = (JavascriptExecutor) driver;								
+							zz.executeScript("arguments[0].scrollIntoView()", Studentprofile1);
+								Thread.sleep(5000);
+								zz.executeScript("arguments[0].click()", Studentprofile1);
+								Thread.sleep(6000);
+
+				        WebElement inputElementid = driver.findElement(By.cssSelector("input[formcontrolname='studentId']"));
+				        inputElementid.sendKeys(desiredText);
+						//driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-student/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[2]/div/mat-tab-group/div/mat-tab-body[1]/div/div[2]/div/div/form/div/div/mat-form-field/div/div[1]/div[3]/input")).sendKeys(desiredText);
+						Thread.sleep(2000);
+						zz.executeScript("window.scrollBy(0,500)");
+						Thread.sleep(2000);
+						
+						driver.findElement(By.xpath("//span[text()=' Search ']")).click();
+						Thread.sleep(3000);
+
+						String Status = driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-student/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div[2]/div/div/table/tbody/tr/td[4]")).getText();
+						
+						if(Status.equalsIgnoreCase("Enrolled")) {
+							System.out.println("Re-Enrollment is done");
+							
+						}
+						else {
+							System.out.println("Re-Enrollment status is displaying: "+Status);
+					          throw new RuntimeException("Test failed because the status  message did not Match");
+
+						}
 		              // String originalTextss = StudentIDs;
 
 		               

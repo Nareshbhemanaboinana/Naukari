@@ -24,6 +24,7 @@ import org.testng.annotations.Test;
 import com.github.javafaker.Faker;
 
 import Components.Universal_methods;
+import USERS_ROLES.configProperties;
 import devAdmin.Login;
 
 public class Enrolling_Student_convert_Full_Pymnt_with_Cash extends Login{
@@ -37,6 +38,7 @@ public class Enrolling_Student_convert_Full_Pymnt_with_Cash extends Login{
 		Faker fk = new Faker();
 		Universal_methods UM=new Universal_methods ();
         WebDriverWait wait = new WebDriverWait(driver, 10);
+        configProperties.initializePropertyFile();
 
 	  Actions actions = new Actions(driver);
 	   String chequeNumber = fk.number().digits(8); // Example: Generate an 8-digit number
@@ -44,6 +46,7 @@ public class Enrolling_Student_convert_Full_Pymnt_with_Cash extends Login{
 	    String neftReferenceNumber = fk.regexify("[A-Z0-9]{10}"); // Example: Generate a 10-character alphanumeric string
 	    String rtgsReferenceNumber = fk.regexify("[A-Z0-9]{10}"); // Example: Generate a 10-character alphanumeric string
 	    String referenceNumber = fk.regexify("[A-Z0-9]{12}"); // Example: Generate a 12-character alphanumeric string
+	    String MBLNumber = fk.regexify("[0-9]{10}"); // Example: Generate a 12-character alphanumeric string
 
 	String Name = fk.name().firstName();
 	  WebElement svenextt = driver.findElement(By.xpath("//a[@href='#/admin/collegelevel']"));
@@ -61,22 +64,24 @@ public class Enrolling_Student_convert_Full_Pymnt_with_Cash extends Login{
 				WebElement fourthDropdown = dropdowns.get(3);
 				WebElement fiveDropdown = dropdowns.get(4);
 				WebElement sixDropdown = dropdowns.get(5);
-				WebElement sevenDropdown = dropdowns.get(6);
+			//	WebElement sevenDropdown = dropdowns.get(6);
 				WebElement eightDropdown = dropdowns.get(7);
 				WebElement nineDropdown = dropdowns.get(8);
 				WebElement tenDropdown = dropdowns.get(9);
 
-				FirstDropdown.click();
+				WebElement clickableFirstDropdown = wait.until(ExpectedConditions.elementToBeClickable(FirstDropdown));
+
+				clickableFirstDropdown.click();
 				UM.selectOptionByText(driver,  "2024");
 
 		     
 
 				Thread.sleep(3000);
 			      driver.findElement(By.xpath("//input[@formcontrolname='sName']")).sendKeys(Name);
-			      driver.findElement(By.xpath("//input[@formcontrolname='sMobileNo']")).sendKeys("9999999999");
+			      driver.findElement(By.xpath("//input[@formcontrolname='sMobileNo']")).sendKeys(MBLNumber);
 			      driver.findElement(By.xpath("//input[@formcontrolname='sTelephoneNo']")).sendKeys("99999999999");
 			      driver.findElement(By.xpath("//input[@formcontrolname='sEmail']")).sendKeys(Name+"@yopmail.com");
-			      driver.findElement(By.xpath("//input[@formcontrolname='iDOB']")).sendKeys("07/06/1994");
+			      driver.findElement(By.xpath("//input[@formcontrolname='DOC']")).sendKeys("07/06/1994");
 			      secoendDropdown.click();
 					UM.selectOptionByText(driver,  "Male");
 
@@ -112,23 +117,25 @@ public class Enrolling_Student_convert_Full_Pymnt_with_Cash extends Login{
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress1']")).sendKeys("hyd");
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress2']")).sendKeys("hyd");
 				      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingState']")).click();			
-						UM.selectOptionByText(driver,  "Telengana");
+						Thread.sleep(3000);
+
+				      UM.selectOptionByText(driver,  "TELANGANA");
 
 						Thread.sleep(3000);
 
 					      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingCity']")).click();			
 	                     Thread.sleep(3000);
-	 					UM.selectOptionByText(driver,  "Hyderabad");
+	 					UM.selectOptionByText(driver,  "HYDERABAD");
 					  	Thread.sleep(3000);
 
-					      driver.findElement(By.xpath("//input[@ng-reflect-name='sMailingZipCode']")).sendKeys("500067");
+					      driver.findElement(By.xpath("//input[@formcontrolname='sMailingZipCode']")).sendKeys("500067");
 
 					      driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[1]/div[2]/div[1]/div/mat-checkbox/label/span[1]")).click();
 		                 Thread.sleep(4000);
 		            driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[2]/button[2]/span[1]")).click();
 		            Thread.sleep(3000);
 					  	
-	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
+/*	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
 	List<WebElement> Optionss = driver.findElements(By.cssSelector("mat-option"));
 					        // Loop through the options to find the desired one
 	                        
@@ -173,11 +180,11 @@ public class Enrolling_Student_convert_Full_Pymnt_with_Cash extends Login{
 	   
 
 		}
-		Thread.sleep(3000);
+		Thread.sleep(3000); */
 
-	  	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[5]/mat-form-field/div/div[1]/div[3]/input")).sendKeys("2016");
+	  	//driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[5]/mat-form-field/div/div[1]/div[3]/input")).sendKeys("2016");
 		
-	  	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[6]/mat-form-field/div/div[1]/div[3]/input")).sendKeys("All");
+	  //	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[6]/mat-form-field/div/div[1]/div[3]/input")).sendKeys("All");
 	  	
 	  	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[7]/mat-form-field/div/div[1]/div[3]/input")).click();
 	  
@@ -275,21 +282,24 @@ public class Enrolling_Student_convert_Full_Pymnt_with_Cash extends Login{
 				Thread.sleep(3000);
 		        actions.sendKeys(Keys.TAB).perform();
 				Thread.sleep(3000);
+				driver.findElement(By.xpath("//span[text()=' Next ']")).click();
 
-				driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[1]/div/div/div/form/div[2]/button/span[1]")).click();
+				//driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[1]/div/div/div/form/div[2]/button/span[1]")).click();
 				Thread.sleep(3000);
 
-				driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[2]/div/div/div/form/div[1]/div[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
+			/*	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[2]/div/div/div/form/div[1]/div[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
 				Thread.sleep(3000);
 
 				driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div/div/mat-option/span")).click();
-				Thread.sleep(3000);
-
+				Thread.sleep(5000);
+       */
 			      driver.findElement(By.cssSelector("mat-select[formcontrolname='batchCode']")).click();			
 
 				Thread.sleep(3000);
-				UM.selectOptionByText(driver, "MBA_Batch009");
-				System.out.println("Enrolled Batch is: MBA_Batch009");
+				UM.selectOptionByText(driver, configProperties.property.getProperty("Batch"));
+
+			//	UM.selectOptionByText(driver, "Fin10");
+				System.out.println("Enrolled Batch is: Fin10");
 				Thread.sleep(4000);
 		        actions.sendKeys(Keys.TAB).perform();
 							Thread.sleep(3000);
@@ -348,10 +358,10 @@ public class Enrolling_Student_convert_Full_Pymnt_with_Cash extends Login{
 			         // Find all radio buttons within the radio group
 
 				List<WebElement> ddropdowns = driver.findElements(By.cssSelector("mat-select"));
-					WebElement eeightDropdown = ddropdowns.get(7);
+					WebElement sevenDropdown = ddropdowns.get(6);
 
 			        // Click on the dropdown to open it
-					eeightDropdown.click();			
+					sevenDropdown.click();			
 			        Thread.sleep(3000);
 				List<WebElement> Optionspayments = driver.findElements(By.cssSelector("mat-option"));
 				//Loop through the options to find the desired one
@@ -494,19 +504,19 @@ public class Enrolling_Student_convert_Full_Pymnt_with_Cash extends Login{
 	                }
 				} 
 				}   // Default action if option not matched
-	  			Thread.sleep(3000);
+				   Thread.sleep(3000);
 
-				zz.executeScript("window.scrollBy(0,300)");
-
-	            WebElement formFilledBy = driver.findElement(By.cssSelector("mat-select[formcontrolname='formFilledBy']"));
+				//driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body/div/div/div/form/mat-vertical-stepper/div[2]/div/div/div/form[3]/div[1]/div/mat-form-field/div/div[1]/div[3]/mat-select/div/div[1]/span")).click();
+	         driver.findElement(By.cssSelector("mat-select[formcontrolname='formFilledBy']")).click();
 				Thread.sleep(3000);
 
 		        // Click on the dropdown
-			   formFilledBy.click();
+
 			UM.selectOptionByText(driver,  "Parents");
 						   Thread.sleep(3000);
-							zz.executeScript("window.scrollBy(0,500)");
-							  Thread.sleep(3000);
+
+							zz.executeScript("window.scrollBy(0,300)");
+							Thread.sleep(3000);
 
 				driver.findElement(By.xpath("//h5[text()=' Student Signed On Rules & Regulations ']")).click();
 			   
@@ -536,7 +546,7 @@ public class Enrolling_Student_convert_Full_Pymnt_with_Cash extends Login{
 							driver.findElement(By.xpath("//span[text()=' Close ']")).click();
 							   Thread.sleep(3000);
 
-		               driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body/div/div/div/mat-vertical-stepper/div[2]/div/div/div/div[4]/div/button[3]/span[1]")).click();
+					driver.findElement(By.xpath("//span[text()=' Save and Print ']")).click();
 					   Thread.sleep(3000);
  
 		               WebElement Student=driver.findElement(By.xpath("/html/body/div[3]/div/h2"));
@@ -555,7 +565,7 @@ public class Enrolling_Student_convert_Full_Pymnt_with_Cash extends Login{
 		               // Iterate through the parts to find the desired text
 		               String desiredText = null;
 		               for (String part : parts) {
-		                   if (part.startsWith("NARE")) {
+		                   if (part.startsWith("BPRG")) {
 		                       desiredText = part;
 		                       break;
 		                   }

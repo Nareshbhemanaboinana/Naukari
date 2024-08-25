@@ -11,6 +11,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.sikuli.script.FindFailed;
 import org.testng.annotations.Test;
 
@@ -27,8 +29,8 @@ public class Print_Original_Receipt extends Login{
 	@Test
 	public void Print_Orgnl_Rcept_With_Clicking_on_Save_and_Do_Not_Print_Button() throws InterruptedException {
 		
-		String optionText2 = "Credit Card";
-		
+
+		String optionText2 ="Direct Transfer to Bank";
 		Faker fk = new Faker();
 		Universal_methods UM=new Universal_methods ();
 
@@ -38,6 +40,9 @@ public class Print_Original_Receipt extends Login{
 	    String neftReferenceNumber = fk.regexify("[A-Z0-9]{10}"); // Example: Generate a 10-character alphanumeric string
 	    String rtgsReferenceNumber = fk.regexify("[A-Z0-9]{10}"); // Example: Generate a 10-character alphanumeric string
 	    String referenceNumber = fk.regexify("[A-Z0-9]{12}"); // Example: Generate a 12-character alphanumeric string
+	    String mobileNo = fk.regexify("[0-9]{10}"); // Example: Generate a 12-character alphanumeric string
+
+	    WebDriverWait wait = new WebDriverWait(driver, 10);
 
 	String Name = fk.name().firstName();
 	  WebElement svenextt = driver.findElement(By.xpath("//a[@href='#/admin/collegelevel']"));
@@ -55,7 +60,7 @@ public class Print_Original_Receipt extends Login{
 				WebElement fourthDropdown = dropdowns.get(3);
 				WebElement fiveDropdown = dropdowns.get(4);
 				WebElement sixDropdown = dropdowns.get(5);
-				WebElement sevenDropdown = dropdowns.get(6);
+				//WebElement sevenDropdown = dropdowns.get(6);
 				WebElement eightDropdown = dropdowns.get(7);
 				WebElement nineDropdown = dropdowns.get(8);
 				WebElement tenDropdown = dropdowns.get(9);
@@ -67,10 +72,10 @@ public class Print_Original_Receipt extends Login{
 
 				Thread.sleep(3000);
 			      driver.findElement(By.xpath("//input[@formcontrolname='sName']")).sendKeys(Name);
-			      driver.findElement(By.xpath("//input[@formcontrolname='sMobileNo']")).sendKeys("9999999999");
+			      driver.findElement(By.xpath("//input[@formcontrolname='sMobileNo']")).sendKeys(mobileNo);
 			      driver.findElement(By.xpath("//input[@formcontrolname='sTelephoneNo']")).sendKeys("99999999999");
 			      driver.findElement(By.xpath("//input[@formcontrolname='sEmail']")).sendKeys(Name+"@yopmail.com");
-			      driver.findElement(By.xpath("//input[@formcontrolname='iDOB']")).sendKeys("07/06/1994");
+			      driver.findElement(By.xpath("//input[@formcontrolname='DOC']")).sendKeys("07/06/1994");
 			      secoendDropdown.click();
 					UM.selectOptionByText(driver,  "Male");
 
@@ -100,26 +105,42 @@ public class Print_Original_Receipt extends Login{
 				      driver.findElement(By.xpath("//input[@formcontrolname='sFatherDesignation']")).sendKeys("abc");
 				      driver.findElement(By.xpath("//input[@formcontrolname='sGSTno']")).sendKeys("29ABCDE1234F1ZH");
 						Thread.sleep(3000);
+						//Thread.sleep(3000);
+						zz.executeScript("window.scrollBy(0,400)");
+						Thread.sleep(3000);
 
 
+						//driver.findElement(By.xpath("//span[text()=' Next ']")).click();
 						driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[2]/div/div/div/form/div[2]/button[2]/span[1]")).click();
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress1']")).sendKeys("hyd");
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress2']")).sendKeys("hyd");
+						Thread.sleep(3000);
+						//Thread.sleep(3000);
+						zz.executeScript("window.scrollBy(0,250)");
+						Thread.sleep(3000);
+
 				      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingState']")).click();			
-						UM.selectOptionByText(driver,  "Telengana");
+						Thread.sleep(3000);
+
+				      UM.selectOptionByText(driver,  "TELANGANA");
 
 						Thread.sleep(3000);
 
 					      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingCity']")).click();			
 	                     Thread.sleep(3000);
-	 					UM.selectOptionByText(driver,  "Hyderabad");
+	 					UM.selectOptionByText(driver,  "HYDERABAD");
 					  	Thread.sleep(3000);
 
-					      driver.findElement(By.xpath("//input[@ng-reflect-name='sMailingZipCode']")).sendKeys("500067");
+					      driver.findElement(By.xpath("//input[@formcontrolname='sMailingZipCode']")).sendKeys("500067");
 
 					      driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[1]/div[2]/div[1]/div/mat-checkbox/label/span[1]")).click();
-		                 Thread.sleep(4000);
-		            driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[2]/button[2]/span[1]")).click();
+		               //  Thread.sleep(4000);
+							Thread.sleep(3000);
+							//Thread.sleep(3000);
+							zz.executeScript("window.scrollBy(0,200)");
+							Thread.sleep(3000);
+
+		                 driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[2]/button[2]/span[1]")).click();
 		            Thread.sleep(3000);
 					  	
 	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
@@ -161,7 +182,7 @@ public class Print_Original_Receipt extends Login{
 	//Loop through the options to find the desired one
 	//Loop through the options to find the desired one
 	for (int i=0; i<=Options2s.size()-1; i++) {
-		Options2s.get(1).click();
+		Options2s.get(2).click();
 		Thread.sleep(3000); 
 		break;
 	   
@@ -173,8 +194,12 @@ public class Print_Original_Receipt extends Login{
 		
 	  	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[6]/mat-form-field/div/div[1]/div[3]/input")).sendKeys("All");
 	  	
-	  	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[7]/mat-form-field/div/div[1]/div[3]/input")).click();
-	  
+	  	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[7]/mat-form-field/div/div[1]/div[3]/input")).sendKeys("90");
+		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		zz.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(3000);
+
 	  	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[2]/div/button[2]/span[1]")).click();
 					  	Thread.sleep(3000);
 	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[5]/div/div/div/form/div/div[1]/div[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
@@ -184,10 +209,17 @@ public class Print_Original_Receipt extends Login{
 		Thread.sleep(3000);
 
 	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[5]/div/div/div/form/div/div[1]/div[2]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
+	Thread.sleep(2000);
+
 	UM.selectOptionByText(driver,  "0");
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//input[@formcontrolname='sWorkingAs']")).sendKeys("abc");
 	driver.findElement(By.xpath("//input[@formcontrolname='sEmployerName']")).sendKeys("abc");
+	Thread.sleep(3000);
+	//Thread.sleep(3000);
+	zz.executeScript("window.scrollBy(0,500)");
+	Thread.sleep(3000);
+
 	driver.findElement(By.xpath("//input[@formcontrolname='iNewspaper']")).click();
 	Thread.sleep(3000);
 
@@ -202,6 +234,9 @@ public class Print_Original_Receipt extends Login{
 
 	WebElement button = driver.findElement(By.xpath("//button[@class='mat-focus-indicator btn-space teams-primary mat-flat-button mat-button-base']"));
 	button.click();
+	Thread.sleep(3000);
+	//Thread.sleep(3000);
+	zz.executeScript("window.scrollBy(0,500)");
 	Thread.sleep(3000);
 
 	driver.findElement(By.xpath("//input[@formcontrolname='iKnowofTIME']")).click();
@@ -234,7 +269,8 @@ public class Print_Original_Receipt extends Login{
 
 	 
 	      driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[5]/div/div/div/div/button[2]/span[1]")).click();
-	      Thread.sleep(5000);
+	    //  Thread.sleep(4000);
+	      wait.until(ExpectedConditions.alertIsPresent());
 
 	      Alert alert = driver.switchTo().alert();
 
@@ -251,7 +287,7 @@ public class Print_Original_Receipt extends Login{
 
 
 
-
+        
 
 		
 	    
@@ -259,7 +295,7 @@ public class Print_Original_Receipt extends Login{
 				//JavascriptExecutor zz = (JavascriptExecutor) driver;
 				zz.executeScript("arguments[0].scrollIntoView()", svenexxst);
 				Thread.sleep(5000);
-				zz.executeScript("arguments[0].click()", svenexxst);
+			zz.executeScript("arguments[0].click()", svenexxst);
 				Thread.sleep(6000);
 		
 				driver.findElement(By.xpath("//input[@formcontrolname='enquiryID']")).sendKeys(id);
@@ -269,33 +305,27 @@ public class Print_Original_Receipt extends Login{
 		        actions.sendKeys(Keys.TAB).perform();
 				Thread.sleep(3000);
 
-				driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[1]/div/div/div/form/div[2]/button/span[1]")).click();
+				driver.findElement(By.xpath("//span[text()=' Next ']")).click();
 				Thread.sleep(3000);
 
-				driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[2]/div/div/div/form/div[1]/div[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
-				Thread.sleep(3000);
 
-				driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div/div/mat-option/span")).click();
-				Thread.sleep(3000);
-
-			      driver.findElement(By.cssSelector("mat-select[formcontrolname='batchCode']")).click();			
+			     driver.findElement(By.cssSelector("mat-select[formcontrolname='batchCode']")).click();			
 
 				Thread.sleep(3000);
-				UM.selectOptionByText(driver, "MBA_Batch");
-				System.out.println("Enrolled Batch is: MBA_Batch");
+				UM.selectOptionByText(driver,"MBAFBatch");
+				System.out.println("Enrolled Batch is: MBAFBatch");
 				Thread.sleep(4000);
 
-				  WebElement typeOfPayment = driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body/div/div/div/mat-vertical-stepper/div[2]/div/div/div/form[1]/div/div[6]/div[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]"));
+			     driver.findElement(By.cssSelector("mat-select[formcontrolname='typeOfPayment']")).click();			
 			        
 			        // Click on the dropdown
-				   typeOfPayment.click();
 					UM.selectOptionByText(driver,  "2 Installments");
 					Thread.sleep(3000);
 
 				zz.executeScript("window.scrollBy(0,400)");
 				   Thread.sleep(3000);
 
-				   String fstinstallment =driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[2]/div/div/div/form/div[1]/div[7]/div/div[1]/div/div/table/tbody/tr[1]/td[2]")).getText();
+				   String fstinstallment =driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body/div/div/div/form/mat-vertical-stepper/div[2]/div/div/div/form[1]/div/div[7]/div/div[1]/div/div/table/tbody/tr[1]/td[2]")).getText();
 				   Thread.sleep(3000);
 
 					zz.executeScript("window.scrollBy(0,400)");
@@ -306,12 +336,13 @@ public class Print_Original_Receipt extends Login{
 				   // Find the radio group element
 			         // Find all radio buttons within the radio group
 
-				List<WebElement> ddropdowns = driver.findElements(By.cssSelector("mat-select"));
-					WebElement eeightDropdown = ddropdowns.get(7);
 
-			        // Click on the dropdown to open it
-					eeightDropdown.click();			
-			        Thread.sleep(3000);
+						List<WebElement> ddropdowns = driver.findElements(By.cssSelector("mat-select"));
+							WebElement sevenDropdown = ddropdowns.get(6);
+
+					        // Click on the dropdown to open it
+							sevenDropdown.click();			
+					        Thread.sleep(3000);
 				List<WebElement> Optionspayments = driver.findElements(By.cssSelector("mat-option"));
 				//Loop through the options to find the desired one
 
@@ -320,7 +351,7 @@ public class Print_Original_Receipt extends Login{
 
 				if(Optionspayment.getText().equals(optionText2)) {
 				Optionspayment.click();
-					String optionText =  Optionspayment.getText();
+					String optionText =  sevenDropdown.getText();
 	              System.out.println("Payment Mode :"+optionText);
 
 					  
@@ -361,11 +392,11 @@ public class Print_Original_Receipt extends Login{
 	                driver.findElement(By.xpath("//input[@formcontrolname='ddOrChequeDate']")).sendKeys(df1.format(dt));	
 
 	                Thread.sleep(3000);
-	              //  driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[3]/div/div/div/form/div[1]/div[2]/div[3]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
+	             //   driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[3]/div/div/div/form/div[1]/div[2]/div[3]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
 		               driver.findElement(By.cssSelector("mat-select[formcontrolname='bankName']")).click();
 
 	                Thread.sleep(3000);
-	                UM.selectOptionByText(driver, "HSBC");
+	                UM.selectOptionByText(driver, "IDBI Bank");
 	            	
 	                Thread.sleep(3000);
 	                driver.findElement(By.xpath("//input[@formcontrolname='totalAmountPaid']")).sendKeys(fstinstallment);	
@@ -430,7 +461,18 @@ public class Print_Original_Receipt extends Login{
 		                Thread.sleep(3000);
 
 	                	driver.findElement(By.xpath("//input[@formcontrolname='totalAmountPaid']")).sendKeys(fstinstallment);	
-	                	driver.findElement(By.xpath("//input[@formcontrolname='paymentRemarks']")).sendKeys("No");	
+	                	driver.findElement(By.xpath("//input[@formcontrolname='paymentRemarks']")).sendKeys(referenceNumber);	
+	   	              
+	              //  driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[3]/div/div/div/form/div[2]/button[2]/span[1]")).click();
+	                break;
+
+		            }
+		            else if(optionText.equals("UPI")) {
+	                	//Optionspayment.click();
+		                Thread.sleep(3000);
+	                	driver.findElement(By.xpath("//input[@formcontrolname='referrenceNo']")).sendKeys("No");	
+
+	                	driver.findElement(By.xpath("//input[@formcontrolname='totalAmountPaid']")).sendKeys(fstinstallment);	
 	   	              
 	              //  driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[3]/div/div/div/form/div[2]/button[2]/span[1]")).click();
 	                break;
@@ -441,10 +483,11 @@ public class Print_Original_Receipt extends Login{
 		            //	Optionspayment.click();
 		                Thread.sleep(3000);
 
+	                	driver.findElement(By.xpath("//input[@formcontrolname='referrenceNo']")).sendKeys("No");	
 
 	                	driver.findElement(By.xpath("//input[@formcontrolname='totalAmountPaid']")).sendKeys(fstinstallment);	
 	   	             //   driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[3]/div/div/div/form/div[2]/button[2]/span[1]")).click();
-
+	                	 break;
 		            }
 	   	         else {
 	 				driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[3]/div/div/div/form/div[1]/div[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
@@ -472,7 +515,8 @@ public class Print_Original_Receipt extends Login{
 						   Thread.sleep(3000);
 	//   Thread.sleep(3000);
 
-				driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body/div/div/div/mat-vertical-stepper/div[2]/div/div/div/form[3]/div[1]/div[2]/mat-checkbox/label/span[1]")).click();
+							driver.findElement(By.xpath("//h5[text()=' Student Signed On Rules & Regulations ']")).click();
+
 				   Thread.sleep(3000);
 
 					zz.executeScript("window.scrollBy(0,500)");
@@ -493,16 +537,22 @@ public class Print_Original_Receipt extends Login{
 		               inputField.sendKeys(Keys.CONTROL + "v");
 		               
 					   Thread.sleep(3000);
+					  // Thread.sleep(3000);
+
+						zz.executeScript("window.scrollBy(0,300)");
+						   Thread.sleep(3000);
+
 						driver.findElement(By.xpath("//span[text()=' Preview Receipt ']")).click();
 						   Thread.sleep(3000);
 
 							driver.findElement(By.xpath("//span[text()=' Close ']")).click();
 							   Thread.sleep(3000);
 
-								driver.findElement(By.xpath("//span[text()=' Save and Do not Print ']")).click();
+							driver.findElement(By.xpath("//span[text()=' Save and Do not Print ']")).click();
+
 								   Thread.sleep(3000);
 
-		               WebElement Student=driver.findElement(By.xpath("/html/body/div[4]/div/h2"));
+		              WebElement Student=driver.findElement(By.xpath("/html/body/div[4]/div/h2"));
 				
 		               String StudentID=Student.getText();
 		               System.out.println(StudentID);
@@ -518,7 +568,7 @@ public class Print_Original_Receipt extends Login{
 		               // Iterate through the parts to find the desired text
 		               String desiredText = null;
 		               for (String part : parts) {
-		                   if (part.startsWith("NARE")) {
+		                   if (part.startsWith("DLRG")) {
 		                       desiredText = part;
 		                       break;
 		                   }
@@ -533,10 +583,10 @@ public class Print_Original_Receipt extends Login{
 		          
 		               driver.findElement(By.xpath("//button[text()='OK']")).click();
 		               
-					   Thread.sleep(5000);
+					   Thread.sleep(5000);   
 					   
 					   WebElement Studentprofile = driver.findElement(By.xpath("//a[@href='#/student-management/student']"));
-						//JavascriptExecutor zz = (JavascriptExecutor) driver;
+					//	JavascriptExecutor zz = (JavascriptExecutor) driver;
 						zz.executeScript("arguments[0].scrollIntoView()", Studentprofile);
 						Thread.sleep(5000);
 						zz.executeScript("arguments[0].click()", Studentprofile);
@@ -595,9 +645,19 @@ public class Print_Original_Receipt extends Login{
 
 							String Approve1 = Approve.getText();
 
-							System.out.println(Approve1);
-			          /*  		Thread.sleep(5000); 
-            	//	Thread.sleep(3000); 
+			            		Thread.sleep(5000);
+			    	            if (Approve1.contains(" Successfully ")) {
+									System.out.println(Approve1);   
+
+			    	            	
+			    	            }
+			    	            else {
+			    	            	System.out.println("Massage:"+ Approve1);
+			    			          throw new RuntimeException("Test failed because the popup message did not contain 'Successfully'.");
+
+			    	            }
+       		
+            /*	//	Thread.sleep(3000); 
 
 		         driver.findElement(By.xpath("//cr-button[text()=' Cancel ']")).click(); 
 

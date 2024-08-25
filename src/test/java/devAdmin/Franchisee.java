@@ -18,7 +18,7 @@ import com.github.javafaker.Faker;
 
 import Components.Universal_methods;
 
-public class Franchisee extends Login1 {
+public class Franchisee extends Login {
 
 	@Test(priority=0)
 	public void ADD_Franchisee() throws InterruptedException {
@@ -47,7 +47,7 @@ public class Franchisee extends Login1 {
     List<WebElement> matOptions = driver.findElements(By.cssSelector("mat-option"));
     // Loop through the options to find the desired one
     for (WebElement option : matOptions) {
-        if (option.getText().equals("Jodpur")) {
+        if (option.getText().equals("Ahmedabad")) {
             // Click on the desired option
             option.click();
             break; // Exit the loop once the desired option is found and clicked

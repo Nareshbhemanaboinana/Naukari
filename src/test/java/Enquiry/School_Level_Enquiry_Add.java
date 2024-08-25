@@ -20,7 +20,10 @@ public class School_Level_Enquiry_Add extends Login{
 	
 	@Test
 	public void school_Level_Enquiry_Adding() throws InterruptedException {
-				Faker fk = new Faker();
+			
+
+		Faker fk = new Faker();
+	    String randomPhoneNumber = fk.number().digits(10);
 				Universal_methods UM=new Universal_methods();
 		    String Name = fk.name().firstName();
 			  WebElement svenextt = driver.findElement(By.xpath("//a[@href='#/admin/schllevel\']"));
@@ -50,10 +53,10 @@ public class School_Level_Enquiry_Add extends Login{
 		        Thread.sleep(3000);
 
 			      driver.findElement(By.xpath("//input[@formcontrolname='sName']")).sendKeys(Name);
-			      driver.findElement(By.xpath("//input[@formcontrolname='sMobileNo']")).sendKeys("9999999999");
+			      driver.findElement(By.xpath("//input[@formcontrolname='sMobileNo']")).sendKeys(randomPhoneNumber);
 			      driver.findElement(By.xpath("//input[@formcontrolname='sTelephoneNo']")).sendKeys("99999999999");
 			      driver.findElement(By.xpath("//input[@formcontrolname='sEmail']")).sendKeys(Name+"@yopmail.com");
-			      driver.findElement(By.xpath("//input[@formcontrolname='iDOB']")).sendKeys("07/06/1994");
+			      driver.findElement(By.xpath("//input[@formcontrolname='DOC']")).sendKeys("07/06/1994");
 			      secoendDropdown.click();
 			        Thread.sleep(3000);
 			      UM.selectOptionByText(driver, "Male");
@@ -72,7 +75,7 @@ public class School_Level_Enquiry_Add extends Login{
 					Thread.sleep(3000);
 			      fiveDropdown.click();
 			      Thread.sleep(3000);
-			      UM.selectOptionByText(driver, "Finance");
+			      UM.selectOptionByText(driver, "HR");
 					Thread.sleep(3000);
 			     	      
 			        driver.findElement(By.xpath("//button[@type='submit'][1]")).click(); 
@@ -95,16 +98,16 @@ public class School_Level_Enquiry_Add extends Login{
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress1']")).sendKeys("hyd");
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress2']")).sendKeys("hyd");
 				      driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-schllevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[1]/div[1]/div[2]/div[3]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]/div")).click();
-				      UM.selectOptionByText(driver, "Telengana");
+				      UM.selectOptionByText(driver, "Tamil Nadu");
 						Thread.sleep(3000);
 				     
 
                      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingCity']")).click();
                       Thread.sleep(3000);
 
-				      UM.selectOptionByText(driver, "Hyderabad");
+				      UM.selectOptionByText(driver, "chennai");
 						Thread.sleep(3000);
-					      driver.findElement(By.xpath("//input[@ng-reflect-name='sMailingZipCode']")).sendKeys("500067");
+					      driver.findElement(By.xpath("//input[@formcontrolname='sMailingZipCode']")).sendKeys("500067");
 					      driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-schllevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[1]/div[2]/div[1]/div/mat-checkbox/label/span[1]")).click(); 
 						  	Thread.sleep(3000);
 			
@@ -283,7 +286,7 @@ public class School_Level_Enquiry_Add extends Login{
 	Thread.sleep(3000);
 	List<WebElement> fracheckboxse =driver.findElements(By.cssSelector("mat-option"));
 	for(WebElement fracheckbox:fracheckboxse ) {
-		if(fracheckbox.getText().equalsIgnoreCase("Jodpur_New_Office")) {
+		if(fracheckbox.getText().equalsIgnoreCase( "Amaravati_Office-II")) {
 			Thread.sleep(3000);
 
 			fracheckbox.click();
@@ -296,7 +299,7 @@ public class School_Level_Enquiry_Add extends Login{
 //	saveAnEnquiry.click(); // Or perform any other action you need
 
      
-	Thread.sleep(4000);
+	Thread.sleep(7000);
 	   try {
 
 	      Alert alert = driver.switchTo().alert();

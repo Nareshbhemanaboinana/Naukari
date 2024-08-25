@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 import com.github.javafaker.Faker;
 
 import devAdmin.Login;
+import devAdmin.Login1;
 
 public class Batch extends Login {
 

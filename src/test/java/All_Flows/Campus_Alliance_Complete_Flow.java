@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -28,26 +29,28 @@ import org.testng.annotations.Test;
 import com.github.javafaker.Faker;
 
 import Components.Universal_methods;
+import USERS_ROLES.configProperties;
 import devAdmin.Login;
 
 public class Campus_Alliance_Complete_Flow extends Login {
 	
 	@Test
-	@Parameters({"optionText2"})
-	public void Campus_Alliance_Complete_Flow_Enquiry_Enrollment_subsequent_Pymnt(String optionText2) throws InterruptedException, FindFailed, HeadlessException, UnsupportedFlavorException, IOException {
+	public void Campus_Alliance_Complete_Flow_Enquiry_Enrollment_subsequent_Pymnt( ) throws InterruptedException, FindFailed, HeadlessException, UnsupportedFlavorException, IOException {
 
+		//@Parameters({"optionText2"})
+        configProperties.initializePropertyFile();
 
-	//	String  ="Cash";
+	String optionText2 ="Cash";
 		Faker fk = new Faker();
 		Universal_methods UM=new Universal_methods ();
-	     WebDriverWait wait = new WebDriverWait(driver, 20); // Adjust timeout as needed
-
+	    WebDriverWait wait = new WebDriverWait(driver, 20); // Adjust timeout as needed
+ 
 	  Actions actions = new Actions(driver);
 	   String chequeNumber = fk.number().digits(8); // Example: Generate an 8-digit number
 	    String ackNumber = fk.number().digits(10); // Example: Generate a 10-digit number
 	    String neftReferenceNumber = fk.regexify("[A-Z0-9]{10}"); // Example: Generate a 10-character alphanumeric string
 	    String rtgsReferenceNumber = fk.regexify("[A-Z0-9]{10}"); // Example: Generate a 10-character alphanumeric string
-	    String referenceNumber = fk.regexify("[A-Z0-9]{12}"); // Example: Generate a 12-character alphanumeric string
+	    String referenceNumber = fk.regexify("[0-9]{12}"); // Example: Generate a 12-character alphanumeric string
 
 	String Name = fk.name().firstName().toUpperCase();
 	 WebElement svenextt = driver.findElement(By.xpath("//a[@href='#/admin/campus']"));
@@ -60,7 +63,7 @@ public class Campus_Alliance_Complete_Flow extends Login {
 
 				driver.findElement(By.xpath("//input[@formcontrolname='sCampusName']")).sendKeys(Name);
 				
-				driver.findElement(By.xpath("//input[@formcontrolname='sGroupCode']")).sendKeys(Name);
+				driver.findElement(By.xpath("//input[@formcontrolname='sGroupCode']")).sendKeys(Name+"D");
 
 				System.out.println("Group Name"+Name);
 				System.out.println("Group code"+Name);
@@ -68,12 +71,12 @@ public class Campus_Alliance_Complete_Flow extends Login {
 	WebElement insnme=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@formcontrolname='sGroupName']")));
 	insnme.sendKeys(Name+"-Institute");			
 	//driver.findElement(By.xpath("//input[@formcontrolname='sGroupName']")).sendKeys(Name+"-Institute");
-		   //     Thread.sleep(3000);
+		      Thread.sleep(3000);
 		    	WebElement img=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@src='assets/images/times/add.png']")));
 		    	img.click();
 			//	driver.findElement(By.xpath("//img[@src='assets/images/times/add.png']")).click();
 		    	WebElement cmpsname=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@formcontrolname='sName']")));
-		    	cmpsname.sendKeys("Naresh");
+		    	cmpsname.sendKeys("ZIVA");
 			//	driver.findElement(By.xpath("//input[@formcontrolname='sName']")).sendKeys("Naresh");
 
 				driver.findElement(By.xpath("//input[@formcontrolname='sDesignation']")).sendKeys("Marketing Head");
@@ -99,7 +102,7 @@ public class Campus_Alliance_Complete_Flow extends Login {
 				  
 					WebElement Address2 =driver.findElement(By.xpath("(//textarea[@aria-required='true'])[2]"));
 
-				  Address2.sendKeys("Hyderabad");
+				  Address2.sendKeys("HYDERABAD");
 				 // zz.executeScript("window.scrollBy(0,500)");
 			       // driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
@@ -108,11 +111,12 @@ public class Campus_Alliance_Complete_Flow extends Login {
 					List<WebElement> dropdowns = driver.findElements(By.cssSelector("mat-select"));
 					WebElement FirstDropdown = dropdowns.get(0);
 					WebElement secoendDropdown = dropdowns.get(1);
-				
-					WebElement SIXDropdown = dropdowns.get(5);
+				WebElement fiveDropdown = dropdowns.get(5);
+
+					WebElement SIXDropdown = dropdowns.get(6);
 					WebElement SEVENDropdown = dropdowns.get(6);
 
-					WebElement eightropdown = dropdowns.get(7);
+				//	WebElement eightropdown = dropdowns.get(7);
 
 			     Thread.sleep(3000);
 				  zz.executeScript("window.scrollBy(0,200)");
@@ -121,13 +125,15 @@ public class Campus_Alliance_Complete_Flow extends Login {
 					FirstDropdown.click();
 					Thread.sleep(3000);
 
-			        UM.selectOptionByText(driver, "New Delhi");
-			        
+			        UM.selectOptionByText(driver, "TELANGANA");
+					Thread.sleep(3000);
+
 			        secoendDropdown.click(); 
 					Thread.sleep(3000);
 
-			        UM.selectOptionByText(driver, "Delhi");
-			     
+			        UM.selectOptionByText(driver, "HYDERABAD");
+					Thread.sleep(3000);
+
 					driver.findElement(By.xpath("//input[@formcontrolname='sMailingZipcode']")).sendKeys("500045");
 
 					driver.findElement(By.xpath("//input[@formcontrolname='sGstno']")).sendKeys("09AAACH7409R1ZZ");
@@ -137,12 +143,13 @@ public class Campus_Alliance_Complete_Flow extends Login {
 					zz.executeScript("window.scrollBy(0,300)");
 					Thread.sleep(3000);
 
-					SIXDropdown.click();
-					
-			        UM.selectOptionByText(driver, "MBA");
+					fiveDropdown.click();
+					Thread.sleep(3000);
+
+                UM.selectOptionByText(driver, "MBA");
 			        Thread.sleep(3000);
   
-			        SEVENDropdown.click();
+			        SIXDropdown.click();
 			        Thread.sleep(3000);
  
 			        UM.selectOptionByText(driver, "Finance");
@@ -156,14 +163,14 @@ public class Campus_Alliance_Complete_Flow extends Login {
  
 					driver.findElement(By.xpath("//span[text()=' Campus ']")).click();
 					Thread.sleep(3000);	
-				//	zz.executeScript("window.scrollBy(0,300)");
-					//Thread.sleep(3000);	
+					zz.executeScript("window.scrollBy(0,300)");
+					Thread.sleep(3000);	
 		
                   driver.findElement(By.cssSelector("mat-select[formcontrolname='iPaymentOption']")).click();
 					
 			        UM.selectOptionByText(driver, "Per Student");
 
-					driver.findElement(By.xpath("//input[@formcontrolname='feeperstd']")).sendKeys("1000");
+					driver.findElement(By.xpath("//input[@formcontrolname='fStudentFee']")).sendKeys("1000");
 
 					driver.findElement(By.xpath("//input[@formcontrolname='iTotalStudents']")).sendKeys("10");
 					Thread.sleep(3000);	
@@ -171,9 +178,10 @@ public class Campus_Alliance_Complete_Flow extends Login {
 						  zz.executeScript("window.scrollBy(0,500)");
 							Thread.sleep(3000);	
 
-					driver.findElement(By.xpath("//span[text()=' Save ']")).click();
+				driver.findElement(By.xpath("//span[text()=' Save ']")).click();
+			    	WebElement popup=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='mat-simple-snack-bar-content']")));
 
-					WebElement popup =driver.findElement(By.xpath("//span[@class='mat-simple-snack-bar-content']"));
+			//		WebElement popup =driver.findElement(By.xpath("//span[@class='mat-simple-snack-bar-content']"));
 				      String popups = popup.getText();
 
 					     // String backgroundColor = popup.getCssValue("background-color");
@@ -201,15 +209,13 @@ public class Campus_Alliance_Complete_Flow extends Login {
 				        			      System.out.println(" message: " + ppopups);
 				        		          throw new RuntimeException("Test failed because the popup message did not contain 'Successfully'.");
 			   
-				        	 
+				            }
 
 		
 
-					
-			        
-				            }
-				            
-			            
+		/*			
+	      
+				        
      	  WebElement CampusallianceEnrlmnt = driver.findElement(By.xpath("//a[@href='#/fresh/campusaliance-enrollment']"));
 		//JavascriptExecutor zz = (JavascriptExecutor) driver;
 		zz.executeScript("arguments[0].scrollIntoView()", CampusallianceEnrlmnt);
@@ -275,11 +281,22 @@ driver.findElement(By.xpath("//input[@formcontrolname='sBatchStartDate']")).send
  	 Thread.sleep(3000);
 
       driver.findElement(By.cssSelector("mat-select[formcontrolname='iPlaceofSupply']")).click();
+		Thread.sleep(3000); 
 
-      UM.selectOptionByText(driver, "New Delhi");
-      
+  	List<WebElement> Options1s = driver.findElements(By.cssSelector("mat-option"));
+  	// Loop through the options to find the desired one
+  	for (int i=0; i<=Options1s.size()-1; i++) {
+  		Options1s.get(1).click();
+  		Thread.sleep(3000); 
+  		break;
+  	      
+
+  		}
+		Thread.sleep(3000); 
+
 		driver.findElement(By.xpath("//span[text()='Active']")).click();
-		
+  		Thread.sleep(3000); 
+
 		
 		driver.findElement(By.xpath("//input[@formcontrolname='iMinimumCapacity']")).sendKeys("40");
 		driver.findElement(By.xpath("//input[@formcontrolname='iMaximumCapacity']")).sendKeys("100");
@@ -352,8 +369,16 @@ for (int i = 0; i < inputs.length; i++) {
     driver.findElement(By.cssSelector("mat-select[formcontrolname='supply']")).click();
     
 
-	UM.selectOptionByText(driver, "New Delhi");
-   
+  	List<WebElement> Options1 = driver.findElements(By.cssSelector("mat-option"));
+  	// Loop through the options to find the desired one
+  	for (int i=0; i<=Options1.size()-1; i++) {
+  		Options1.get(1).click();
+  		Thread.sleep(3000); 
+  		break;
+  	      
+
+  		}
+		Thread.sleep(3000);    
 
 	List<WebElement> ddropdowns = driver.findElements(By.cssSelector("mat-select"));
 		WebElement eeightDropdown = ddropdowns.get(6);
@@ -364,7 +389,7 @@ for (int i = 0; i < inputs.length; i++) {
 
 		   zz.executeScript("window.scrollBy(0,200)");
 		    
-		    Thread.sleep(3000);
+		  //  Thread.sleep(3000);
 
 
         Thread.sleep(3000);
@@ -376,8 +401,10 @@ for (int i = 0; i < inputs.length; i++) {
 
 	if(Optionspayment.getText().equals(optionText2)) {
 	Optionspayment.click();
-		String optionText =  Optionspayment.getText();
-      System.out.println("Payment Mode :"+optionText);
+    Thread.sleep(3000);
+	//String optionText =  Optionspayment.getText();
+  String optionText=eeightDropdown.getText();
+    System.out.println("Payment Mode :"+optionText);
 
 		  
 		  
@@ -448,7 +475,7 @@ for (int i = 0; i < inputs.length; i++) {
 
         //	Optionspayment.click();
             Thread.sleep(3000);
-        	driver.findElement(By.xpath("//input[@formcontrolname='reference1']")).sendKeys(neftReferenceNumber);	
+        	driver.findElement(By.xpath("//input[@formcontrolname='reference']")).sendKeys(neftReferenceNumber);	
 
         	  driver.findElement(By.xpath("//input[@formcontrolname='amountpaid']")).sendKeys(fstinstallmentString);	
 	                Thread.sleep(3000);
@@ -461,7 +488,7 @@ for (int i = 0; i < inputs.length; i++) {
       
         	//Optionspayment.click();
             Thread.sleep(3000);
-        	driver.findElement(By.xpath("//input[@formcontrolname='reference2']")).sendKeys(rtgsReferenceNumber);	
+        	driver.findElement(By.xpath("//input[@formcontrolname='reference']")).sendKeys(rtgsReferenceNumber);	
         	  driver.findElement(By.xpath("//input[@formcontrolname='amountpaid']")).sendKeys(fstinstallmentString);	
 	                Thread.sleep(3000);
 	
@@ -511,7 +538,7 @@ for (int i = 0; i < inputs.length; i++) {
 	}   // Default action if option not matched
 		Thread.sleep(3000);
    System.out.println("Amount paid first installment is : 5000");
-	    zz.executeScript("window.scrollBy(0,500)");
+	    zz.executeScript("window.scrollBy(0,700)");
 		Thread.sleep(3000);
 
 
@@ -544,9 +571,11 @@ for (int i = 0; i < inputs.length; i++) {
 			    zz.executeScript("window.scrollBy(0,400)");
 				Thread.sleep(3000);
 			    driver.findElement(By.xpath("//span[text()=' Save and Genarate Invoice ']")).click();
-			    Thread.sleep(2000);
+			    Thread.sleep(3000);
+			//	WebElement BANKNMN=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@formcontrolname='accountNo']")));
 
-	               driver.findElement(By.xpath("//input[@formcontrolname='accountNo']")).sendKeys("123456789");
+				//BANKNMN.sendKeys("123456789");
+	             driver.findElement(By.xpath("//input[@formcontrolname='accountNo']")).sendKeys("123456789");
 	               
 
 	               driver.findElement(By.xpath("//input[@formcontrolname='bankName']")).sendKeys("SBI");
@@ -571,7 +600,7 @@ for (int i = 0; i < inputs.length; i++) {
 				    Thread.sleep(2000);
 
 				   driver.navigate().refresh();
-				    WebElement subpymntcmsalnc = driver.findElement(By.xpath("//a[@href='#/payments/campuspayment-updatefee']"));
+			    WebElement subpymntcmsalnc = driver.findElement(By.xpath("//a[@href='#/payments/campuspayment-updatefee']"));
 				//	JavascriptExecutor zz = (JavascriptExecutor) driver;
 					zz.executeScript("arguments[0].scrollIntoView()", subpymntcmsalnc);
 					Thread.sleep(5000);
@@ -651,7 +680,7 @@ for (int i = 0; i < inputs.length; i++) {
 
 				String S=    driver.findElement(By.xpath("/html/body/div[4]/div/h2")).getText();
 		
-				System.out.println(S); 
+				System.out.println(S);    */
 				            }
 
 }

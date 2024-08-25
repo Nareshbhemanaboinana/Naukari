@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="All_Flows.Campus_Alliance_Complete_Flow">
+      <class name="All_Flows.Sample">
         <methods>
-          <include name="Campus_Alliance_Complete_Flow_Enquiry_Enrollment_subsequent_Pymnt"/>
-          <include name="TEEMSLOGIN"/>
+          <include name="creating_Sample"/>
         </methods>
-      </class> <!-- All_Flows.Campus_Alliance_Complete_Flow -->
+      </class> <!-- All_Flows.Sample -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

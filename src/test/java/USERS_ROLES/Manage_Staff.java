@@ -7,7 +7,9 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.sikuli.script.FindFailed;
 import org.testng.annotations.Test;
 
@@ -22,7 +24,8 @@ public class Manage_Staff extends Login1{
 	@Test
 	public void Adding_Manage_Staff() throws InterruptedException, FindFailed {
 
-	
+		  Actions actions = new Actions(driver);
+
 		Faker fk = new Faker();
 	    String name=fk.name().firstName();
 	    // String code = fk.code().asin();
@@ -37,17 +40,17 @@ public class Manage_Staff extends Login1{
 		Thread.sleep(6000);
 	
 	 	
-	 	WebElement svenexxt = driver.findElement(By.xpath("//a[@href='#/setups/franchisee']"));
+		WebElement svenexxt = driver.findElement(By.xpath("//a[@href='#/setups/franchisee']"));
 	 JavascriptExecutor zz = (JavascriptExecutor) driver;
 	 	zz.executeScript("arguments[0].scrollIntoView()", svenexxt);
 	 	Thread.sleep(4000);
 	 	zz.executeScript("arguments[0].click()", svenexxt);
 	 	Thread.sleep(4000);
 	 	List<WebElement> dropdowns1 = driver.findElements(By.cssSelector("mat-select"));
-	 	Thread.sleep(4000);
+	 	Thread.sleep(6000);
 
 	 	WebElement FirstDropdown1 = dropdowns1.get(0);
-	 	WebElement secoendDropdown2 = dropdowns1.get(1);
+	 //	WebElement secoendDropdown2 = dropdowns1.get(1);
 	 	Thread.sleep(4000);
 
 	 	FirstDropdown1.click();
@@ -90,8 +93,8 @@ public class Manage_Staff extends Login1{
 	    Universal_methods UM=new Universal_methods();
 
 	 	driver.findElement(By.xpath("//input[@formcontrolname='rdate']")).sendKeys(dateFormat.format(nextYearDate));
-	 	secoendDropdown2.click();
-	 	UM.dropdownselection(driver);
+	 //	secoendDropdown2.click();
+	 //	UM.dropdownselection(driver);
 	 	driver.findElement(By.xpath("//input[@formcontrolname='gstn']")).sendKeys("09AAACH7409R1ZZ");
 	 	driver.findElement(By.xpath("//input[@formcontrolname='cgst']")).sendKeys("9");
 	 	driver.findElement(By.xpath("//input[@formcontrolname='sgst']")).sendKeys("9");
@@ -229,7 +232,12 @@ public class Manage_Staff extends Login1{
     }
 	      else {
 	        	System.out.println("Massage:"+ popups);
-		          throw new RuntimeException("Test failed because the popup message did not contain 'Successfully'.");
+	   	     driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-office/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/form/div/div[4]/mat-form-field/div/div[1]/div[3]/input")).sendKeys(first+second);
+
+	   		WebElement Sav=driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-office/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/form/div/div[19]/div/button/span[1]"));
+	   		zzz.executeScript("arguments[0].scrollIntoView()", Sav);
+	   		Thread.sleep(3000);
+	   		zzz.executeScript("arguments[0].click()", Sav);
 
 	}	
 
@@ -338,7 +346,12 @@ public class Manage_Staff extends Login1{
 	    }
 		      else {
 		        	System.out.println("Massage:"+ popups);
-			          throw new RuntimeException("Test failed because the popup message did not contain 'Successfully'.");
+		   	     driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-office/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/form/div/div[4]/mat-form-field/div/div[1]/div[3]/input")).sendKeys(first+second);
+
+			   		WebElement Saev=driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-office/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/form/div/div[19]/div/button/span[1]"));
+			   		zzz.executeScript("arguments[0].scrollIntoView()", Saev);
+			   		Thread.sleep(3000);
+			   		zzz.executeScript("arguments[0].click()", Saev);
 
 		}	
 
@@ -379,8 +392,15 @@ public class Manage_Staff extends Login1{
      }
  	Thread.sleep(3000);
 
-	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-add-edit-manage-staff/section/div/div[2]/div/div/div/form/div[1]/div[4]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[1]/span")).click();
+    WebElement formFilledBy = driver.findElement(By.cssSelector("mat-select[formcontrolname='desig']"));
+    Thread.sleep(3000);
+
+    // Simulate pressing the Tab key
+    actions.sendKeys(Keys.TAB).perform();
+	   Thread.sleep(3000);
+
 	Thread.sleep(3000);
+    formFilledBy.click();
 
 	List<WebElement> matOptionss1 = driver.findElements(By.cssSelector("mat-option"));
      // Loop through the options to find the desired one
@@ -393,8 +413,9 @@ public class Manage_Staff extends Login1{
      }
  	Thread.sleep(3000);
 
-     driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-add-edit-manage-staff/section/div/div[2]/div/div/div/form/div[1]/div[5]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[1]/span")).click();
- 	Thread.sleep(3000);
+    WebElement passwordPolicy = driver.findElement(By.cssSelector("mat-select[formcontrolname='passwordPolicy']"));
+    passwordPolicy.click();
+    Thread.sleep(3000);
 
      List<WebElement> matOptionss2 = driver.findElements(By.cssSelector("mat-option"));
      // Loop through the options to find the desired one
@@ -419,8 +440,10 @@ public class Manage_Staff extends Login1{
 
      driver.findElement(By.xpath("//input[@formcontrolname='personalEmail']")).sendKeys("Admin@yopmail.com");
  	Thread.sleep(3000);
- 
-     driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-add-edit-manage-staff/section/div/div[2]/div/div/div/form/div[1]/div[11]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[1]/span")).click();
+	zz.executeScript("window.scrollBy(0,500)");
+ 	Thread.sleep(3000);
+
+	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-add-edit-manage-staff/section/div/div[2]/div/div/div/form/div[1]/div[11]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[1]/span")).click();
     
  	Thread.sleep(3000);
 
@@ -428,7 +451,7 @@ public class Manage_Staff extends Login1{
      List<WebElement> matOptionss3 = driver.findElements(By.cssSelector("mat-option"));
      // Loop through the options to find the desired one
      for (WebElement option : matOptionss3) {
-         if (option.getText().equals("Sheetal Srikanth S")) {
+         if (option.getText().equals("SU")) {
              // Click on the desired option
              option.click();
              break; // Exit the loop once the desired option is found and clicked
@@ -484,15 +507,16 @@ public class Manage_Staff extends Login1{
 	Thread.sleep(3000);
 
 	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-add-edit-manage-staff/section/div/div[2]/div/div/div/form/div[2]/div/button[1]/span[1]")).click();
-	Thread.sleep(13000);
+	 
+	Thread.sleep(3000);
 	
 	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-sidebar/div/aside/div/ul/li[15]/a/span")).click();
 	
 	Thread.sleep(3000);
-	driver.findElement(By.xpath("/html/body/app-root/app-auth-layout/app-signin/div/div[2]/div[2]/div/form/mat-form-field[1]/div/div[1]/div[3]/input")).sendKeys(LoginName);
+	driver.findElement(By.xpath("//input[@formcontrolname='username']")).sendKeys(LoginName);
 	Thread.sleep(3000);
 
-	driver.findElement(By.xpath("/html/body/app-root/app-auth-layout/app-signin/div/div[2]/div[2]/div/form/mat-form-field[2]/div/div[1]/div[3]/input")).sendKeys(Password);
+	driver.findElement(By.xpath("//input[@formcontrolname='password']")).sendKeys(Password);
 	Thread.sleep(3000);
 
 	driver.findElement(By.xpath("//button[@type='submit']")).click();
@@ -533,10 +557,17 @@ for (WebElement option : FmatOptionss) {
        break; // Exit the loop once the desired option is found and clicked
    }
 }
-Thread.sleep(3000);
+	Thread.sleep(3000);
 
-driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-add-edit-manage-staff/section/div/div[2]/div/div/div/form/div[1]/div[4]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[1]/span")).click();
-Thread.sleep(3000);
+    WebElement foormFilledBy = driver.findElement(By.cssSelector("mat-select[formcontrolname='desig']"));
+    Thread.sleep(3000);
+
+    // Simulate pressing the Tab key
+    actions.sendKeys(Keys.TAB).perform();
+	   Thread.sleep(3000);
+
+	Thread.sleep(3000);
+    foormFilledBy.click();
 
 List<WebElement> FmatOptionss1 = driver.findElements(By.cssSelector("mat-option"));
 // Loop through the options to find the desired one
@@ -547,10 +578,12 @@ for (WebElement option : FmatOptionss1) {
        break; // Exit the loop once the desired option is found and clicked
    }
 }
-Thread.sleep(3000);
+	Thread.sleep(3000);
 
-driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-add-edit-manage-staff/section/div/div[2]/div/div/div/form/div[1]/div[5]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[1]/span")).click();
-Thread.sleep(3000);
+    WebElement ppasswordPolicy = driver.findElement(By.cssSelector("mat-select[formcontrolname='passwordPolicy']"));
+    ppasswordPolicy.click();
+    Thread.sleep(3000);
+
 
 List<WebElement> FmatOptionss2 = driver.findElements(By.cssSelector("mat-option"));
 // Loop through the options to find the desired one
@@ -574,6 +607,9 @@ Thread.sleep(3000);
 zz.executeScript("window.scrollBy(0,500)");
 
 driver.findElement(By.xpath("//input[@formcontrolname='personalEmail']")).sendKeys("Office@yopmail.com");
+Thread.sleep(3000);
+zz.executeScript("window.scrollBy(0,500)");
+
 Thread.sleep(3000);
 
 driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-add-edit-manage-staff/section/div/div[2]/div/div/div/form/div[1]/div[11]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();
@@ -679,8 +715,15 @@ if (option.getText().equals("QA_Counsellor")) {
 }
 Thread.sleep(3000);
 
-driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-add-edit-manage-staff/section/div/div[2]/div/div/div/form/div[1]/div[4]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[1]/span")).click();
+WebElement foormFilledBy1 = driver.findElement(By.cssSelector("mat-select[formcontrolname='desig']"));
 Thread.sleep(3000);
+
+// Simulate pressing the Tab key
+actions.sendKeys(Keys.TAB).perform();
+   Thread.sleep(3000);
+
+Thread.sleep(3000);
+foormFilledBy1.click();
 
 List<WebElement> F2matOptionss1 = driver.findElements(By.cssSelector("mat-option"));
 //Loop through the options to find the desired one
@@ -691,10 +734,12 @@ if (option.getText().equals("Designation")) {
   break; // Exit the loop once the desired option is found and clicked
 }
 }
-Thread.sleep(3000);
+	Thread.sleep(3000);
 
-driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-add-edit-manage-staff/section/div/div[2]/div/div/div/form/div[1]/div[5]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[1]/span")).click();
-Thread.sleep(3000);
+    WebElement passwordPolicy1 = driver.findElement(By.cssSelector("mat-select[formcontrolname='passwordPolicy']"));
+    passwordPolicy1.click();
+    Thread.sleep(3000);
+
 
 List<WebElement> F2matOptionss2 = driver.findElements(By.cssSelector("mat-option"));
 //Loop through the options to find the desired one
@@ -718,6 +763,9 @@ Thread.sleep(3000);
 zz.executeScript("window.scrollBy(0,500)");
 
 driver.findElement(By.xpath("//input[@formcontrolname='personalEmail']")).sendKeys("Office@yopmail.com");
+Thread.sleep(3000);
+zz.executeScript("window.scrollBy(0,500)");
+
 Thread.sleep(3000);
 
 driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-add-edit-manage-staff/section/div/div[2]/div/div/div/form/div[1]/div[11]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]")).click();

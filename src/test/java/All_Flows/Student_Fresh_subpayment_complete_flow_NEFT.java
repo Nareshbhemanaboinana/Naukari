@@ -40,7 +40,8 @@ public class Student_Fresh_subpayment_complete_flow_NEFT extends Login  {
 	public void Student_payment_complete_flow_NEFT() throws InterruptedException, FindFailed {
 		
 		String optionText2 = "NEFT";
-		
+	    WebDriverWait wait = new WebDriverWait(driver, 15);
+	
 		Faker fk = new Faker();
 		Universal_methods UM=new Universal_methods ();
 
@@ -101,7 +102,7 @@ public class Student_Fresh_subpayment_complete_flow_NEFT extends Login  {
 			    	Thread.sleep(3000);
 
 			      fiveDropdown.click();
-					UM.selectOptionByText(driver,  "Finance");
+					UM.selectOptionByText(driver,  "HR");
 	  
 			         
 					driver.findElement(By.xpath("//span[text()=' Next ']")).click();
@@ -118,16 +119,16 @@ public class Student_Fresh_subpayment_complete_flow_NEFT extends Login  {
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress1']")).sendKeys("hyd");
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress2']")).sendKeys("hyd");
 				      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingState']")).click();			
-						UM.selectOptionByText(driver,  "Telengana");
+						UM.selectOptionByText(driver,  "TELANGANA");
 
 						Thread.sleep(3000);
 
 					      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingCity']")).click();			
 	                     Thread.sleep(3000);
-	 					UM.selectOptionByText(driver,  "Hyderabad");
+	 					UM.selectOptionByText(driver,  "HYDERABAD");
 					  	Thread.sleep(3000);
 
-					      driver.findElement(By.xpath("//input[@ng-reflect-name='sMailingZipCode']")).sendKeys("500067");
+					      driver.findElement(By.xpath("//input[@formcontrolname='sMailingZipCode']")).sendKeys("500067");
 
 					      driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[1]/div[2]/div[1]/div/mat-checkbox/label/span[1]")).click();
 		                 Thread.sleep(4000);
@@ -246,7 +247,7 @@ public class Student_Fresh_subpayment_complete_flow_NEFT extends Login  {
 
 	 
 	      driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[5]/div/div/div/div/button[2]/span[1]")).click();
-	      Thread.sleep(4000);
+	      wait.until(ExpectedConditions.alertIsPresent());
 
 	      Alert alert = driver.switchTo().alert();
 
@@ -293,8 +294,8 @@ public class Student_Fresh_subpayment_complete_flow_NEFT extends Login  {
 			      driver.findElement(By.cssSelector("mat-select[formcontrolname='batchCode']")).click();			
 
 				Thread.sleep(3000);
-				UM.selectOptionByText(driver, "MBA_Batch");
-				System.out.println("Enrolled Batch is: MBA_Batch");
+				UM.selectOptionByText(driver, "MBA-009");
+				System.out.println("Enrolled Batch is: MBA-009");
 				Thread.sleep(4000);
 
 				  WebElement typeOfPayment = driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body/div/div/div/mat-vertical-stepper/div[2]/div/div/div/form[1]/div/div[6]/div[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[2]"));
@@ -529,7 +530,7 @@ public class Student_Fresh_subpayment_complete_flow_NEFT extends Login  {
 		               // Iterate through the parts to find the desired text
 		               String desiredText = null;
 		               for (String part : parts) {
-		                   if (part.startsWith("NARE")) {
+		                   if (part.startsWith("NDH3")) {
 		                       desiredText = part;
 		                       break;
 		                   }
@@ -635,13 +636,16 @@ public class Student_Fresh_subpayment_complete_flow_NEFT extends Login  {
 				zz.executeScript("window.scrollBy(0,200)");
 				Thread.sleep(3000); 
 
-	 			driver.findElement(By.xpath("//span[text()=' Preview ']")).click();
+	 			driver.findElement(By.xpath("//span[text()=' Preview Receipt ']")).click();
 				Thread.sleep(3000); 
 				zz.executeScript("window.scrollBy(0,600)");
 				Thread.sleep(3000); 
 				Thread.sleep(3000); 
 				zz.executeScript("window.scrollBy(0,600)");
-				Thread.sleep(3000); 
+				Thread.sleep(3000);
+
+				driver.findElement(By.xpath("//span[text()=' Close ']")).click();
+				   Thread.sleep(3000);
 
 	 			driver.findElement(By.xpath("//span[text()=' Save and Print ']")).click();
 
@@ -660,7 +664,7 @@ public class Student_Fresh_subpayment_complete_flow_NEFT extends Login  {
              // Iterate through the parts to find the desired text
              String desiredTextt = null;
              for (String part : partss) {
-                 if (part.startsWith("NANA")) {
+                 if (part.startsWith("NDH3")) {
                      desiredTextt = part;
                      break;
                  }

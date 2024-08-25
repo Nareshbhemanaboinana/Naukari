@@ -1,46 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="3" parallel="methods" name="Failed suite [Naresh]" guice-stage="DEVELOPMENT">
+<suite name="Failed suite [Naresh]" guice-stage="DEVELOPMENT">
   <listeners>
-    <listener class-name="Browse.Listeners3"/>
+    <listener class-name="Components.Listeners"/>
   </listeners>
-  <test thread-count="3" parallel="methods" name="ParameterizedTestMethod1(failed)">
+  <test thread-count="5" name="Repeated_Reports(failed)">
     <classes>
-      <class name="All_Flows.Campus_Alliance_Complete_Flow">
+      <class name="Reports.Revenue_Collection_Report">
         <methods>
-          <include name="Campus_Alliance_Complete_Flow_Enquiry_Enrollment_subsequent_Pymnt">
-            <parameter name="optionText2" value="NEFT"/>
-          </include> <!-- Campus_Alliance_Complete_Flow_Enquiry_Enrollment_subsequent_Pymnt -->
+          <include name="Revenue_Collection_Reports"/>
           <include name="TEEMSLOGIN"/>
-          <include name="teardown"/>
         </methods>
-      </class> <!-- All_Flows.Campus_Alliance_Complete_Flow -->
-    </classes>
-  </test> <!-- ParameterizedTestMethod1(failed) -->
-  <test thread-count="3" parallel="methods" name="ParameterizedTestMethod2(failed)">
-    <classes>
-      <class name="All_Flows.Campus_Alliance_Complete_Flow">
+      </class> <!-- Reports.Revenue_Collection_Report -->
+      <class name="Reports.Subcourse_wise_Enrollment">
         <methods>
-          <include name="Campus_Alliance_Complete_Flow_Enquiry_Enrollment_subsequent_Pymnt">
-            <parameter name="optionText2" value="RTGS"/>
-          </include> <!-- Campus_Alliance_Complete_Flow_Enquiry_Enrollment_subsequent_Pymnt -->
+          <include name="Subcourse_wise_Enrollment_Reports"/>
           <include name="TEEMSLOGIN"/>
-          <include name="teardown"/>
         </methods>
-      </class> <!-- All_Flows.Campus_Alliance_Complete_Flow -->
-    </classes>
-  </test> <!-- ParameterizedTestMethod2(failed) -->
-  <test thread-count="3" parallel="methods" name="ParameterizedTestMethod3(failed)">
-    <classes>
-      <class name="All_Flows.Campus_Alliance_Complete_Flow">
+      </class> <!-- Reports.Subcourse_wise_Enrollment -->
+      <class name="Reports.Discount">
         <methods>
-          <include name="Campus_Alliance_Complete_Flow_Enquiry_Enrollment_subsequent_Pymnt">
-            <parameter name="optionText2" value="TDS"/>
-          </include> <!-- Campus_Alliance_Complete_Flow_Enquiry_Enrollment_subsequent_Pymnt -->
+          <include name="Discounts"/>
           <include name="TEEMSLOGIN"/>
-          <include name="teardown"/>
         </methods>
-      </class> <!-- All_Flows.Campus_Alliance_Complete_Flow -->
+      </class> <!-- Reports.Discount -->
+      <class name="Reports.SubCourse_Wise_Revenue_Report">
+        <methods>
+          <include name="SubCourse_Wise_Revenue_Reports"/>
+          <include name="TEEMSLOGIN"/>
+        </methods>
+      </class> <!-- Reports.SubCourse_Wise_Revenue_Report -->
     </classes>
-  </test> <!-- ParameterizedTestMethod3(failed) -->
+  </test> <!-- Repeated_Reports(failed) -->
 </suite> <!-- Failed suite [Naresh] -->

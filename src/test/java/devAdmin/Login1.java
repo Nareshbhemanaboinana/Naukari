@@ -3,13 +3,17 @@ package devAdmin;
 
 
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
+import USERS_ROLES.XLUtils;
 
 
 
@@ -18,36 +22,59 @@ public class Login1 {
 
 	
 	@BeforeMethod
-    public void TEEMSLOGIN() throws InterruptedException {
+    public void TEEMSLOGIN() throws InterruptedException, IOException {
 		
-		//System.setProperty("webdriver.gecko.driver", "./Drivers//geckodriver.exe");
-		 
+		
 		System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
+	//	System.setProperty("webdriver.gecko.driver", "./SSD//geckodriver.exe");
+
+		//System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
  
 	         driver = new ChromeDriver();
-	     driver.get("https://dev.syngymaxim.com/TIME_Web/#/admin/schllevel");
+	       //   driver = new FirefoxDriver();
+
+	         String Path="D:\\selenium\\TEEMSLoginData.xlsx";
+	         String uid= XLUtils.getcelldata(Path, "Sheet1", 11, 0);
+	         String psword= XLUtils.getcelldata(Path, "Sheet1", 11, 1);
+	  driver.get("https://dev.syngymaxim.com/TIME_Web/#/admin/schllevel");
+	//   driver.get("https://teems3qa.teems.in/web/#/authentication/signin");
+
 		driver.manage().window().maximize();
-        driver.navigate().refresh();
+		Thread.sleep(3000);
 
+       driver.navigate().refresh();
+/*
+		driver.findElement(By.id("details-button")).click();
+		Thread.sleep(2000);
+
+		driver.findElement(By.id("proceed-link")).click();
+		Thread.sleep(2000); 
+  
+        */
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		Thread.sleep(4000);
-		driver.findElement(By.xpath("/html/body/app-root/app-auth-layout/app-signin/div/div[2]/div[2]/div/form/mat-form-field[1]/div/div[1]/div[3]/input")).sendKeys("SU");
-		Thread.sleep(4000);
 
-		driver.findElement(By.xpath("/html/body/app-root/app-auth-layout/app-signin/div/div[2]/div[2]/div/form/mat-form-field[2]/div/div[1]/div[3]/input")).sendKeys("test@1231");
-		Thread.sleep(4000);
+	WebElement  Login= driver.findElement(By.xpath("//input[@formcontrolname='username']"));
+	//Login.sendKeys(uid);
+	Login.sendKeys("SU");
 
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		Thread.sleep(29000);
+	WebElement  pswd= driver.findElement(By.xpath("//input[@formcontrolname='password']"));
+			pswd.sendKeys("Test@1231");
+
+	//	pswd.sendKeys(psword);
+		Thread.sleep(2000);
+
+		WebElement  Submit=driver.findElement(By.xpath("//button[@type='submit']"));
+		Submit.click();
+		Thread.sleep(5000);
 	}
 		 
 
-		
+	/*	
 	@AfterMethod()
 	public void teardown() {
 		driver.quit();
 	}	 
-	
+	*/
 }
 	
 	
