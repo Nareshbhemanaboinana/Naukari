@@ -20,12 +20,13 @@ import Components.Universal_methods;
 import devAdmin.Login;
 
 public class Update_Resume {
-	
+	public WebDriver driver;
+
 	@Test
 	public void updating_Noukary_Resume() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
 
-		WebDriver driver=new ChromeDriver();
+		 driver=new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
 		driver.get("https://www.naukri.com/mnjuser/homepage");
@@ -72,8 +73,10 @@ public class Update_Resume {
     WebElement messageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@class='msg']")));
     String messageText = messageElement.getText();
 
-    if(messageText.equalsIgnoreCase("Resume has been successfully uploaded.")) {
-    	System.out.println("Resume has been successfully uploaded.");
+   // if(messageText.equalsIgnoreCase("Resume has been successfully uploaded.")) {
+        if(messageText.equalsIgnoreCase(" has been  uploaded.")) {
+
+    System.out.println("Resume has been successfully uploaded.");
     }
     else {
         throw new RuntimeException("Test failed because the popup message did not contain 'Successfully'.");
