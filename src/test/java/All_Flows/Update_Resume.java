@@ -72,8 +72,10 @@ public class Update_Resume {
     WebElement messageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@class='msg']")));
     String messageText = messageElement.getText();
 
-    if(messageText.equalsIgnoreCase("Resume has been successfully uploaded.")) {
-    	System.out.println("Resume has been successfully uploaded.");
+   // if(messageText.equalsIgnoreCase("Resume has been successfully uploaded.")) {
+     if(messageText.equalsIgnoreCase("has been  uploaded.")) {
+	
+    System.out.println("Resume has been successfully uploaded.");
     }
     else {
         throw new RuntimeException("Test failed because the popup message did not contain 'Successfully'.");
