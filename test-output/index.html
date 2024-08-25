@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Naresh" class="navigator-link">
-              <span class="suite-name border-passed">Naresh</span>
+              <span class="suite-name border-failed">Naresh</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -93,21 +93,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Naresh" class="hide-methods passed suite-Naresh"> (hide)</a> <!-- hide-methods passed suite-Naresh -->
-                      <a href="#" panel-name="suite-Naresh" class="show-methods passed suite-Naresh"> (show)</a> <!-- show-methods passed suite-Naresh -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Naresh" class="hide-methods failed suite-Naresh"> (hide)</a> <!-- hide-methods failed suite-Naresh -->
+                      <a href="#" panel-name="suite-Naresh" class="show-methods failed suite-Naresh"> (show)</a> <!-- show-methods failed suite-Naresh -->
                     </span>
-                    <div class="method-list-content passed suite-Naresh">
+                    <div class="method-list-content failed suite-Naresh">
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-Naresh" title="All_Flows.Update_Resume" class="method navigator-link" hash-for-method="updating_Noukary_Resume">updating_Noukary_Resume</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Naresh -->
+                    </div> <!-- method-list-content failed suite-Naresh -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -119,9 +119,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Naresh" class="panel Naresh">
-          <div class="suite-Naresh-class-passed">
+          <div class="suite-Naresh-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">All_Flows.Update_Resume</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -130,10 +130,15 @@
                   <a name="updating_Noukary_Resume">
                   </a> <!-- updating_Noukary_Resume -->
                   <span class="method-name">updating_Noukary_Resume</span>
+                  <div class="stack-trace">java.lang.RuntimeException: Test failed because the popup message did not contain &apos;Successfully&apos;.
+	at All_Flows.Update_Resume.updating_Noukary_Resume(Update_Resume.java:82)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Naresh-class-passed -->
+          </div> <!-- suite-Naresh-class-failed -->
         </div> <!-- panel Naresh -->
         <div panel-name="test-xml-Naresh" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -145,7 +150,7 @@
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Naresh&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;listeners&gt;
-    &lt;listener class-name=&quot;Components.Listeners&quot;/&gt;
+    &lt;listener class-name=&quot;Browse.Listeners3&quot;/&gt;
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Updating_Resume&quot;&gt;
     &lt;classes&gt;
@@ -197,12 +202,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'updating_Noukary_Resume')
 data.setCell(0, 2, 'All_Flows.Update_Resume')
-data.setCell(0, 3, 34120);
+data.setCell(0, 3, 33699);
 window.suiteTableData['Naresh']= { tableData: data, tableDiv: 'times-div-Naresh'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 34 seconds</span>
+              <span class="suite-total-time">Total running time: 33 seconds</span>
               <div id="times-div-Naresh">
               </div> <!-- times-div-Naresh -->
             </div> <!-- times-div -->
@@ -230,6 +235,8 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">All_Flows.Update_Resume</div> <!-- chronological-class-name -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">updating_Noukary_Resume</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->

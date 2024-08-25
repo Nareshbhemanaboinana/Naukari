@@ -64,9 +64,6 @@ public class Listeners3 extends ExtendreportsNG implements ITestListener {
     public void onTestFailure(ITestResult results) {
         String consoleOutputString = consoleOutput.get().toString();
         consoleOutput.get().reset();
-      /*  extentTest.get().log(Status.FAIL, MarkupHelper.createLabel(
-        	    "<span style='background-color: red; color: black;'>Console Output:</span><br><pre style='border: 1px solid black; padding: 10px; color: black; background-color: #f2f2f2;'>"
-        	    + consoleOutputString + "</pre>", ExtentColor.RED)) */
         extentTest.get().log(Status.FAIL, MarkupHelper.createLabel("<span style='color: black;'>Test is Fail</span><br><pre style='border: 1px solid red; padding: 10px; color: black; background-color: red; font-weight: bold;'>" + consoleOutputString + "</pre>", ExtentColor.RED));
 
         extentTest.get().fail(results.getThrowable());
@@ -91,6 +88,8 @@ public class Listeners3 extends ExtendreportsNG implements ITestListener {
         }
     }
 
+     
+  
 
     @Override
     public void onTestSkipped(ITestResult results) {
