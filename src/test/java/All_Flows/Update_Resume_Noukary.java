@@ -19,7 +19,7 @@ import org.testng.annotations.Test;
 import Components.Universal_methods;
 import devAdmin.Login;
 
-public class Update_Resume {
+public class Update_Resume_Noukary {
 	public WebDriver driver;
 
 	@Test
@@ -59,7 +59,7 @@ public class Update_Resume {
 	Thread.sleep(2000);
 	zz.executeScript("window.scrollBy(0,300)");
 	Thread.sleep(2000);
-    File file = new File("./Resume//(Naresh) Resume 3+yers manual &automation testing ().pdf"); // Replace with the actual file name
+    File file = new File("./Resume//Naresh Resume 3 yers Manual and Automation testing.pdf"); // Replace with the actual file name
     String filePath = file.getAbsolutePath();
 
     WebElement uploadElement = driver.findElement(By.id("attachCV"));
@@ -83,7 +83,7 @@ public class Update_Resume {
 
     }
 
-	
+	driver.close();
 
 	
 	}

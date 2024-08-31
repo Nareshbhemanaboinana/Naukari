@@ -9,12 +9,17 @@
      
 
 
-  <class name="All_Flows.Update_Resume">
+  <class name="All_Flows.Update_Resume_Noukary">
                 <methods>
                    <include name="updating_Noukary_Resume"/>
                 </methods>
         </class>     
 			
+  <class name="All_Flows.Update_Resume_foundit">
+                <methods>
+                   <include name="updating_Foundit_Resume"/>
+                </methods>
+        </class>   
  </classes>
 
 		

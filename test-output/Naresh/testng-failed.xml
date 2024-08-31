@@ -6,11 +6,11 @@
   </listeners>
   <test thread-count="5" name="Updating_Resume(failed)">
     <classes>
-      <class name="All_Flows.Update_Resume">
+      <class name="All_Flows.Update_Resume_foundit">
         <methods>
-          <include name="updating_Noukary_Resume"/>
+          <include name="updating_Foundit_Resume"/>
         </methods>
-      </class> <!-- All_Flows.Update_Resume -->
+      </class> <!-- All_Flows.Update_Resume_foundit -->
     </classes>
   </test> <!-- Updating_Resume(failed) -->
 </suite> <!-- Failed suite [Naresh] -->
