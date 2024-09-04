@@ -59,7 +59,7 @@ public class Update_Resume_Noukary {
 	Thread.sleep(2000);
 	zz.executeScript("window.scrollBy(0,300)");
 	Thread.sleep(2000);
-    File file = new File("./Resume//Naresh Resume 3 yers Manual and Automation testing.pdf"); // Replace with the actual file name
+    File file = new File("./Resume//Naresh Resume 4 years exp in manual and Automation.pdf"); 
     String filePath = file.getAbsolutePath();
 
     WebElement uploadElement = driver.findElement(By.id("attachCV"));

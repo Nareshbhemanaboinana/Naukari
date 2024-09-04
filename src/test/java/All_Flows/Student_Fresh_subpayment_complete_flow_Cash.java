@@ -137,13 +137,13 @@ public class Student_Fresh_subpayment_complete_flow_Cash extends Login  {
 				      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingState']")).click();			
 						Thread.sleep(3000);
 
-				      UM.selectOptionByText(driver,  "TELANGANA");
+				      UM.selectOptionByText(driver,  "Telangana");
 
 						Thread.sleep(3000);
 
 					      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingCity']")).click();			
 	                     Thread.sleep(3000);
-	 					UM.selectOptionByText(driver,  "HYDERABAD");
+	 					UM.selectOptionByText(driver,  "hyderabad");
 					  	Thread.sleep(3000);
 
 					      driver.findElement(By.xpath("//input[@formcontrolname='sMailingZipCode']")).sendKeys(zipcode);
