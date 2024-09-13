@@ -27,11 +27,11 @@ public class Update_Resume_Noukary {
 		System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
 
 		 driver=new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+       WebDriverWait wait = new WebDriverWait(driver, 10);
 
 		driver.get("https://www.naukri.com/mnjuser/homepage");
 		driver.manage().window().maximize();
-	Thread.sleep(3000);
+	Thread.sleep(3000); 
 	driver.findElement(By.id("usernameField")).sendKeys("bhemanaboinanaresh@gmail.com");
 	Thread.sleep(3000);
 
@@ -46,47 +46,48 @@ public class Update_Resume_Noukary {
 	driver.findElement(By.xpath("//*[text()='View']")).click();
 	Thread.sleep(3000);
 
-    driver.findElement(By.xpath("//span[@data-title='delete-resume']")).click();
+	WebElement deleteResumeButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@data-title='delete-resume']")));
+	deleteResumeButton.click();
+
+  // driver.findElement(By.xpath("//span[@data-title='delete-resume']")).click();
 	Thread.sleep(3000);
 
-    WebElement deleteButton = driver.findElement(By.xpath("/html/body/div[6]/div[7]/div/div/button")); // Using class name
+   WebElement deleteButton = driver.findElement(By.xpath("/html/body/div[6]/div[7]/div/div/button")); // Using class name
 
-    // Click the delete button
-    deleteButton.click();
+   // Click the delete button
+   deleteButton.click();
 	JavascriptExecutor zz = (JavascriptExecutor) driver;
 
 	Thread.sleep(5000);
 	Thread.sleep(2000);
 	zz.executeScript("window.scrollBy(0,300)");
 	Thread.sleep(2000);
-    File file = new File("./Resume//Naresh Resume 4 years exp in manual and Automation.pdf"); 
-    String filePath = file.getAbsolutePath();
+   File file = new File("./Resume//Naresh Resume 4 years exp in manual and Automation.pdf"); 
+   String filePath = file.getAbsolutePath();
 
-    WebElement uploadElement = driver.findElement(By.id("attachCV"));
+   WebElement uploadElement = driver.findElement(By.id("attachCV"));
 
+  
+   uploadElement.sendKeys(filePath);
    
-    uploadElement.sendKeys(filePath);
-    
-    
-    
-    
-    WebElement messageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@class='msg']")));
-    String messageText = messageElement.getText();
+   
+   
+   
+   WebElement messageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@class='msg']")));
+   String messageText = messageElement.getText();
 
-    if(messageText.equalsIgnoreCase("Resume has been successfully uploaded.")) {
+   if(messageText.equalsIgnoreCase("Resume has been successfully uploaded.")) {
 
 
-    System.out.println("Resume has been successfully uploaded.");
-    }
-    else {
-        throw new RuntimeException("Test failed because the popup message did not contain 'Successfully'.");
+   System.out.println("Resume has been successfully uploaded.");
+   }
+   else {
+       throw new RuntimeException("Test failed because the popup message did not contain 'Successfully'.");
 
-    }
+   }
 
 	driver.close();
 
 	
 	}
 	}
-
-

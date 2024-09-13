@@ -580,7 +580,7 @@ public class Student_Fresh_subpayment_complete_flow_Cash extends Login  {
 		               // Iterate through the parts to find the desired text
 		               String desiredText = null;
 		               for (String part : parts) {
-		                   if (part.startsWith("DLRG")) {
+		                   if (part.startsWith("CNMM")) {
 		                       desiredText = part;
 		                       break;
 		                   }
@@ -725,7 +725,7 @@ public class Student_Fresh_subpayment_complete_flow_Cash extends Login  {
              // Iterate through the parts to find the desired text
              String desiredTextt = null;
              for (String part : partss) {
-                 if (part.startsWith("DLRG")) {
+                 if (part.startsWith("CNMM")) {
                      desiredTextt = part;
                      break;
                  }
