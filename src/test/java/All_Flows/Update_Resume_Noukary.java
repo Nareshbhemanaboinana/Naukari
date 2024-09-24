@@ -27,7 +27,7 @@ public class Update_Resume_Noukary {
 		System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
 
 		 driver=new ChromeDriver();
-       WebDriverWait wait = new WebDriverWait(driver, 10);
+       WebDriverWait wait = new WebDriverWait(driver, 15);
 
 		driver.get("https://www.naukri.com/mnjuser/homepage");
 		driver.manage().window().maximize();

@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-09-13T20:16:09 IST" name="Default suite" finished-at="2024-09-13T20:16:47 IST" duration-ms="37363">
+  <suite started-at="2024-09-24T10:50:55 IST" name="Naresh" finished-at="2024-09-24T10:52:25 IST" duration-ms="89753">
     <groups>
     </groups>
-    <test started-at="2024-09-13T20:16:09 IST" name="Default test" finished-at="2024-09-13T20:16:47 IST" duration-ms="37363">
+    <test started-at="2024-09-24T10:50:55 IST" name="Updating_Resume" finished-at="2024-09-24T10:52:25 IST" duration-ms="89753">
+      <class name="All_Flows.Update_Resume_foundit">
+        <test-method signature="updating_Foundit_Resume()[pri:0, instance:All_Flows.Update_Resume_foundit@452e19ca]" started-at="2024-09-24T10:51:31 IST" name="updating_Foundit_Resume" finished-at="2024-09-24T10:52:25 IST" duration-ms="54035" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updating_Foundit_Resume -->
+      </class> <!-- All_Flows.Update_Resume_foundit -->
       <class name="All_Flows.Update_Resume_Noukary">
-        <test-method signature="updating_Noukary_Resume()[pri:0, instance:All_Flows.Update_Resume_Noukary@759d26fb]" started-at="2024-09-13T20:16:09 IST" name="updating_Noukary_Resume" finished-at="2024-09-13T20:16:47 IST" duration-ms="37325" status="PASS">
+        <test-method signature="updating_Noukary_Resume()[pri:0, instance:All_Flows.Update_Resume_Noukary@264f218]" started-at="2024-09-24T10:50:55 IST" name="updating_Noukary_Resume" finished-at="2024-09-24T10:51:31 IST" duration-ms="35680" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updating_Noukary_Resume -->
       </class> <!-- All_Flows.Update_Resume_Noukary -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Updating_Resume -->
+  </suite> <!-- Naresh -->
 </testng-results>

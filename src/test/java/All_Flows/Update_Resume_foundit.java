@@ -37,7 +37,10 @@ public class Update_Resume_foundit {
 	driver.findElement(By.id("signInbtn")).click();
 	Thread.sleep(5000);
 
-	driver.findElement(By.xpath("//img[@alt='Bhemanaboina Naresh']")).click();
+	driver.navigate().refresh();
+	Thread.sleep(5000);
+
+//	driver.findElement(By.xpath("//img[@alt='Bhemanaboina Naresh']")).click();
 	Thread.sleep(3000);
 
 	driver.findElement(By.xpath("//a[@href='/seeker/profile']")).click();
