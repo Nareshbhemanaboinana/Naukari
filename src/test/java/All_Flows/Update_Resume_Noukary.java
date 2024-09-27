@@ -45,14 +45,18 @@ public class Update_Resume_Noukary {
 
 	driver.findElement(By.xpath("//*[text()='View']")).click();
 	Thread.sleep(3000);
+	
+	driver.findElement(By.xpath("(//i[@class='icon'])[2]")).click();
 
-	WebElement deleteResumeButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@data-title='delete-resume']")));
-	deleteResumeButton.click();
+
+//	WebElement deleteResumeButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@data-title='delete-resume']")));
+	//deleteResumeButton.click();
 
   // driver.findElement(By.xpath("//span[@data-title='delete-resume']")).click();
 	Thread.sleep(3000);
+	//driver.findElement(By.xpath("(//*[text()='Delete'])[2]")).click();
 
-   WebElement deleteButton = driver.findElement(By.xpath("/html/body/div[6]/div[7]/div/div/button")); // Using class name
+  WebElement deleteButton = driver.findElement(By.xpath("/html/body/div[6]/div[7]/div/div/button")); // Using class name
 
    // Click the delete button
    deleteButton.click();
