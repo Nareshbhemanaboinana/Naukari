@@ -6,6 +6,7 @@ import java.awt.datatransfer.StringSelection;
 import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
@@ -40,7 +41,7 @@ public class Student_Fresh_subpayment_complete_flow_NEFT extends Login  {
 	public void Student_payment_complete_flow_NEFT() throws InterruptedException, FindFailed {
 		
 		String optionText2 = "NEFT";
-	    WebDriverWait wait = new WebDriverWait(driver, 15);
+		   WebDriverWait wait = new WebDriverWait(driver, (10));
 	
 		Faker fk = new Faker();
 		Universal_methods UM=new Universal_methods ();

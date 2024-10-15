@@ -7,6 +7,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class Enrolling_Student_convert_Full_Pymnt_with_Others extends Login{
 	@Test
 	public void Enrolling_Student_convert_Full_Peyment_with_Others() throws InterruptedException, FindFailed, HeadlessException, UnsupportedFlavorException, IOException {
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+		   WebDriverWait wait = new WebDriverWait(driver, (10));
 
 		String optionText2 = "Others";
 		

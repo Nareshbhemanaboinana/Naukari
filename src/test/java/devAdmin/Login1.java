@@ -55,10 +55,10 @@ public class Login1 {
 
 	WebElement  Login= driver.findElement(By.xpath("//input[@formcontrolname='username']"));
 	//Login.sendKeys(uid);
-	Login.sendKeys("SU");
+	Login.sendKeys("vonkramk");
 
 	WebElement  pswd= driver.findElement(By.xpath("//input[@formcontrolname='password']"));
-			pswd.sendKeys("Test@1231");
+			pswd.sendKeys("17July2024");
 
 	//	pswd.sendKeys(psword);
 		Thread.sleep(2000);

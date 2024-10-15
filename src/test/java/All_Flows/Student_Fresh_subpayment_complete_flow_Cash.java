@@ -6,6 +6,7 @@ import java.awt.datatransfer.StringSelection;
 import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
@@ -43,7 +44,7 @@ public class Student_Fresh_subpayment_complete_flow_Cash extends Login  {
 		
 		//@Parameters({"optionText2"})
 
-		String optionText2 ="Direct Transfer to Bank";
+		String optionText2 ="DD/Cheque";
 		Faker fk = new Faker();
 		Universal_methods UM=new Universal_methods ();
 
@@ -57,7 +58,7 @@ public class Student_Fresh_subpayment_complete_flow_Cash extends Login  {
 	    String zipcode = fk.regexify("[0-9]{6}"); // Example: Generate a 12-character alphanumeric string
 	    String Address = fk.address().fullAddress(); // Example: Generate a 12-character alphanumeric string
 
-	    WebDriverWait wait = new WebDriverWait(driver, 10);
+	    WebDriverWait wait = new WebDriverWait(driver, (10));
 
 	String Name = fk.name().firstName();
 	  WebElement svenextt = driver.findElement(By.xpath("//a[@href='#/admin/collegelevel']"));
@@ -129,24 +130,28 @@ public class Student_Fresh_subpayment_complete_flow_Cash extends Login  {
 						driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[2]/div/div/div/form/div[2]/button[2]/span[1]")).click();
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress1']")).sendKeys(Address);
 				      driver.findElement(By.xpath("//textarea[@formcontrolname='sMailingAddress2']")).sendKeys("hyd");
-						Thread.sleep(3000);
+						Thread.sleep(2000);
 						//Thread.sleep(3000);
 						zz.executeScript("window.scrollBy(0,250)");
-						Thread.sleep(3000);
+						Thread.sleep(2000);
 
 				      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingState']")).click();			
-						Thread.sleep(3000);
+						Thread.sleep(2000);
 
 				      UM.selectOptionByText(driver,  "Telangana");
 
-						Thread.sleep(3000);
+						Thread.sleep(2000);
 
 					      driver.findElement(By.cssSelector("mat-select[formcontrolname='iMailingCity']")).click();			
-	                     Thread.sleep(3000);
+	                     Thread.sleep(2000);
 	 					UM.selectOptionByText(driver,  "hyderabad");
 					  	Thread.sleep(3000);
 
 					      driver.findElement(By.xpath("//input[@formcontrolname='sMailingZipCode']")).sendKeys(zipcode);
+						  	Thread.sleep(2000);
+
+					      zz.executeScript("window.scrollBy(0,-250)");
+						  	Thread.sleep(3000);
 
 					      driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[1]/div[2]/div[1]/div/mat-checkbox/label/span[1]")).click();
 		               //  Thread.sleep(4000);
@@ -327,8 +332,8 @@ public class Student_Fresh_subpayment_complete_flow_Cash extends Login  {
 			     driver.findElement(By.cssSelector("mat-select[formcontrolname='batchCode']")).click();			
 
 				Thread.sleep(3000);
-				UM.selectOptionByText(driver,"MBAFBatch");
-				System.out.println("Enrolled Batch is: MBAFBatch");
+				UM.selectOptionByText(driver,  "F_Batch");
+				System.out.println("Enrolled Batch is:F_Batch");
 				Thread.sleep(4000);
 
 			     driver.findElement(By.cssSelector("mat-select[formcontrolname='typeOfPayment']")).click();			

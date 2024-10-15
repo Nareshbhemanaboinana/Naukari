@@ -7,6 +7,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -51,7 +52,7 @@ public class Enroll_Student_Combo_Course_with_cash_Payment extends Login {
 	    String neftReferenceNumber = fk.regexify("[A-Z0-9]{10}"); // Example: Generate a 10-character alphanumeric string
 	    String rtgsReferenceNumber = fk.regexify("[A-Z0-9]{10}"); // Example: Generate a 10-character alphanumeric string
 	    String referenceNumber = fk.regexify("[A-Z0-9]{12}"); // Example: Generate a 12-character alphanumeric string
-	    WebDriverWait wait = new WebDriverWait(driver, 10);
+	    WebDriverWait wait = new WebDriverWait(driver, (10));
 
   	String Name = fk.name().firstName();
 	 WebElement svenextt = driver.findElement(By.xpath("//a[@href='#/admin/collegelevel']"));

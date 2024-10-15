@@ -47,8 +47,8 @@ public class Login {
 	         String uid= XLUtils.getcelldata(Path, "Sheet1", 1, 0);
 	         String psword= XLUtils.getcelldata(Path, "Sheet1", 1, 1);
 	//  driver.get("http://dev.syngymaxim.com/TIME_Web/#/admin/schllevel");
-	//  driver.get("https://teems3qa.teems.in/web/#/authentication/signin");
-	  driver.get("	  https://dev.syngymaxim.com/TIME_Web/#/admin/schllevel\r\n");
+	  driver.get("https://teems3qa.teems.in/web/#/authentication/signin");
+	//  driver.get("	  https://dev.syngymaxim.com/TIME_Web/#/admin/schllevel\r\n");
 
 		driver.manage().window().maximize();
 		Thread.sleep(3000);

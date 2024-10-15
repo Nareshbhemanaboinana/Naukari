@@ -22,7 +22,7 @@ import devAdmin.Login;
 public class Update_Resume_Noukary {
 	public WebDriver driver;
 
-	@Test
+	@Test(retryAnalyzer=Retry.class)
 	public void updating_Noukary_Resume() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
 

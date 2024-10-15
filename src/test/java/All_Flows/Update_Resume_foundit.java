@@ -1,6 +1,7 @@
 package All_Flows;
 
 import java.io.File;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -14,12 +15,12 @@ import org.testng.annotations.Test;
 public class Update_Resume_foundit {
 	public WebDriver driver;
 
-	@Test
+	@Test(retryAnalyzer=Retry.class)
 	public void updating_Foundit_Resume() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
 
 		 driver=new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+		   WebDriverWait wait = new WebDriverWait(driver, (10));
 
 		driver.get("https://www.foundit.in/rio/login");
 		driver.manage().window().maximize();

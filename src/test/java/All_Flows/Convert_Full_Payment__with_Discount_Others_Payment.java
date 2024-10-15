@@ -7,6 +7,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class Convert_Full_Payment__with_Discount_Others_Payment extends Login {
 	@Test
 	public void Student_Convert_Full_Payment__with_Discount_Others_Payment() throws InterruptedException, FindFailed, HeadlessException, UnsupportedFlavorException, IOException {
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+		   WebDriverWait wait = new WebDriverWait(driver, (10));
 
 
 		String optionText2 = "Others";

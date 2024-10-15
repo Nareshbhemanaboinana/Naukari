@@ -7,6 +7,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class Enrolling_Student_convert_Full_Pymnt_with_Cash extends Login{
 		
 		Faker fk = new Faker();
 		Universal_methods UM=new Universal_methods ();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+		   WebDriverWait wait = new WebDriverWait(driver, (10));
         configProperties.initializePropertyFile();
 
 	  Actions actions = new Actions(driver);

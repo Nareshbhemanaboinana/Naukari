@@ -5,6 +5,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -43,7 +44,7 @@ public class Campus_Alliance_Complete_Flow extends Login {
 	String optionText2 ="Cash";
 		Faker fk = new Faker();
 		Universal_methods UM=new Universal_methods ();
-	    WebDriverWait wait = new WebDriverWait(driver, 20); // Adjust timeout as needed
+		   WebDriverWait wait = new WebDriverWait(driver, (10));
  
 	  Actions actions = new Actions(driver);
 	   String chequeNumber = fk.number().digits(8); // Example: Generate an 8-digit number

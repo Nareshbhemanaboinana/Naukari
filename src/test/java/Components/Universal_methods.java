@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 
@@ -115,7 +116,7 @@ public class Universal_methods    {
 		//Thread.sleep(1000);
 		 driver=rdriver;
 			PageFactory.initElements(rdriver, this);
-	        WebDriverWait wait = new WebDriverWait(driver, 10);
+			   WebDriverWait wait = new WebDriverWait(driver, (10));
 /*
 	        List<WebElement> options = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("mat-option")));
 
@@ -187,7 +188,7 @@ public class Universal_methods    {
 	    String referenceNumber = fk.regexify("[A-Z0-9]{12}"); // Example: Generate a 12-character alphanumeric string
 	    String mobileNo = fk.regexify("[0-9]{10}"); // Example: Generate a 12-character alphanumeric string
 
-	    WebDriverWait wait = new WebDriverWait(driver, 10);
+	    WebDriverWait wait = new WebDriverWait(driver, (10));
 
 	String Name = fk.name().firstName();
 	  WebElement svenextt = driver.findElement(By.xpath("//a[@href='#/admin/collegelevel']"));

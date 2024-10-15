@@ -7,6 +7,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class Convert_Full_Payment__with_Discount_Credit_Card_Payment extends Log
 		
 		Faker fk = new Faker();
 		Universal_methods UM=new Universal_methods ();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+		   WebDriverWait wait = new WebDriverWait(driver, (10));
 
 	  Actions actions = new Actions(driver);
 	   String chequeNumber = fk.number().digits(8); // Example: Generate an 8-digit number
