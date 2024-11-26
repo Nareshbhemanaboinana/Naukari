@@ -15,8 +15,9 @@ import com.github.javafaker.Faker;
 
 import Components.Universal_methods;
 import devAdmin.Login;
+import devAdmin.Login1;
 
-public class School_Level_Enquiry_Add extends Login{
+public class School_Level_Enquiry_Add extends Login1{
 	
 	@Test
 	public void school_Level_Enquiry_Adding() throws InterruptedException {
@@ -286,7 +287,7 @@ public class School_Level_Enquiry_Add extends Login{
 	Thread.sleep(3000);
 	List<WebElement> fracheckboxse =driver.findElements(By.cssSelector("mat-option"));
 	for(WebElement fracheckbox:fracheckboxse ) {
-		if(fracheckbox.getText().equalsIgnoreCase( "Amaravati_Office-II")) {
+		if(fracheckbox.getText().equalsIgnoreCase( "Ajmer_Office-I")) {
 			Thread.sleep(3000);
 
 			fracheckbox.click();

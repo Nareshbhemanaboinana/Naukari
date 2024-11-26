@@ -32,8 +32,9 @@ import com.github.javafaker.Faker;
 import Components.Universal_methods;
 import USERS_ROLES.configProperties;
 import devAdmin.Login;
+import devAdmin.Login1;
 
-public class Campus_Alliance_Complete_Flow extends Login {
+public class Campus_Alliance_Complete_Flow extends Login1 {
 	
 	@Test
 	public void Campus_Alliance_Complete_Flow_Enquiry_Enrollment_subsequent_Pymnt( ) throws InterruptedException, FindFailed, HeadlessException, UnsupportedFlavorException, IOException {

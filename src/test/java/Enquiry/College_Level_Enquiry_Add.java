@@ -32,7 +32,7 @@ public class College_Level_Enquiry_Add extends Login{
 	@Test
 	public void  College_Level_Enquiry_Adding() throws InterruptedException {
 		
-		Faker fk = new Faker();
+        Faker fk = new Faker();
 		Universal_methods UM=new Universal_methods ();
 
 	  Actions actions = new Actions(driver);

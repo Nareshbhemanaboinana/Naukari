@@ -19,6 +19,7 @@ public class Update_Resume_foundit {
 	public void updating_Foundit_Resume() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
 
+	
 		 driver=new ChromeDriver();
 		   WebDriverWait wait = new WebDriverWait(driver, (10));
 

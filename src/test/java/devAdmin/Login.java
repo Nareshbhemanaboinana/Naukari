@@ -29,25 +29,25 @@ public class Login {
 	@BeforeMethod
     public void TEEMSLOGIN() throws InterruptedException, IOException {
 		
-	//	System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
-		System.setProperty("webdriver.gecko.driver", "./SSD//geckodriver.exe");
+		System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
+	//	System.setProperty("webdriver.gecko.driver", "./SSD//geckodriver.exe");
 
 		//System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
  
-     //  ChromeOptions options = new ChromeOptions();
+      ChromeOptions options = new ChromeOptions();
         
         // Add the incognito argument to ChromeOptions
-    //    options.addArguments("--incognito");
+        options.addArguments("--incognito");
 
         // Initialize ChromeDriver with the options
-      //   driver = new ChromeDriver(options);
-	          driver = new FirefoxDriver();
+       driver = new ChromeDriver(options);
+	     //     driver = new FirefoxDriver();
 
 	         String Path="D:\\selenium\\TEEMSLoginData.xlsx";
 	         String uid= XLUtils.getcelldata(Path, "Sheet1", 1, 0);
 	         String psword= XLUtils.getcelldata(Path, "Sheet1", 1, 1);
-	//  driver.get("http://dev.syngymaxim.com/TIME_Web/#/admin/schllevel");
-	  driver.get("https://teems3qa.teems.in/web/#/authentication/signin");
+	 driver.get("http://dev.syngymaxim.com/TIME_Web/#/admin/schllevel");
+	//  driver.get("https://teems3qa.teems.in/web/#/authentication/signin");
 	//  driver.get("	  https://dev.syngymaxim.com/TIME_Web/#/admin/schllevel\r\n");
 
 		driver.manage().window().maximize();
@@ -65,10 +65,10 @@ public class Login {
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 	WebElement  Login= driver.findElement(By.xpath("//input[@formcontrolname='username']"));
-	Login.sendKeys(uid);
+	Login.sendKeys("Ajmer_Office-I");
 		WebElement  pswd= driver.findElement(By.xpath("//input[@formcontrolname='password']"));
 
-		pswd.sendKeys(psword);
+		pswd.sendKeys("Test@1231");
 		Thread.sleep(2000);
 
 		WebElement  Submit=driver.findElement(By.xpath("//button[@type='submit']"));

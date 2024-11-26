@@ -3,12 +3,18 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Reports.Receipt_Wise_Collection_Report">
+      <class name="Enquiry.Adding_college_level_Enquiry">
         <methods>
-          <include name="Receipt_Wise_Collection_Reports"/>
+          <include name="Creating_college_level_Enquiry"/>
           <include name="TEEMSLOGIN"/>
         </methods>
-      </class> <!-- Reports.Receipt_Wise_Collection_Report -->
+      </class> <!-- Enquiry.Adding_college_level_Enquiry -->
+      <class name="Enquiry.Enrolling_Student">
+        <methods>
+          <include name="Enrolling"/>
+          <include name="TEEMSLOGIN"/>
+        </methods>
+      </class> <!-- Enquiry.Enrolling_Student -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
