@@ -26,18 +26,18 @@ public class Enrolling_Student extends Enrollement {
   
 	
 	@Test(dependsOnMethods = {"Enquiry.Adding_college_level_Enquiry.Creating_college_level_Enquiry"})
-	
 	public void Enrolling() throws InterruptedException, IOException, AWTException {
 	
     	String Modeofpayment="Cash";
+    	String BatchCode="BCD001";
 	Enrollement.scrollviewandclickindividualstdt(driver);
 	
   EnterEnquiryID(driver, Adding_college_level_Enquiry.id);
  
-  
+ 
 	Enrollement.clickNextbutton(driver);
 	
-	Enrollement.selectdropdownbytext(driver, " Batch Code ", "BCD0001 ");
+	Enrollement.selectdropdownbytext(driver, " Batch Code ", BatchCode+" ");
 	
 	Enrollement.selectdropdownbytext(driver, "Type of Payment", "2 Installments ");
 	
@@ -75,7 +75,7 @@ public class Enrolling_Student extends Enrollement {
     Toolkit.getDefaultToolkit().getSystemClipboard()
             .setContents(new java.awt.datatransfer.StringSelection(pathfile), null);
 
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 
 	driver.findElement(By.xpath("//button[text()='Print Receipt']")).click();
 
@@ -100,7 +100,7 @@ public class Enrolling_Student extends Enrollement {
 
 	            }
 	            
-	        	Thread.sleep(8000);
+	        	Thread.sleep(10000);
 
 	Robot robot = new Robot();
     robot.delay(2000); // Wait for the print dialog to open
@@ -194,7 +194,7 @@ public class Enrolling_Student extends Enrollement {
 	Enrollement.validatetheRecipt(driver, pathfile, StruntID, ReceiptNo, Adding_college_level_Enquiry.Subcoursename,
 			Adding_college_level_Enquiry.Name,Adding_college_level_Enquiry.Address1,Adding_college_level_Enquiry.Address2,
 			Adding_college_level_Enquiry.CityName,Adding_college_level_Enquiry.Statename,Adding_college_level_Enquiry.Pincode,
-			Adding_college_level_Enquiry.MobileNumber);
+			Adding_college_level_Enquiry.MobileNumber,Modeofpayment);
 	
 	
 	

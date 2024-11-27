@@ -346,7 +346,8 @@ Optionspayment.click();
 		  
 		  public static void validatetheRecipt(WebDriver driver ,String pdfFilePath,String StudentID,String ReceiptNo,
 				  String Subcoursename, String name,String Address1,String Address2,
-				  String City,String state,String pincode,String Mobilenumber) throws IOException, InterruptedException {
+				  String City,String state,String pincode,String Mobilenumber,
+				 String Mode_Of_Payment ) throws IOException, InterruptedException {
 			  
 
 			  //TEEMS_ Enquiry & Enrolment Management System.pdf
@@ -362,7 +363,11 @@ Optionspayment.click();
 
 		        Thread.sleep(3000);
 			
-		        PDDocument pdDocument = PDDocument.load(new File(pdfFilePath));
+		     //   PDDocument pdDocument = PDDocument.load(new File(pdfFilePath));
+		        File pdfFile = new File(pdfFilePath);
+		        PDDocument pdDocument = null;
+		        try {
+		            pdDocument = PDDocument.load(pdfFile);
 
 				PDFTextStripper pdfStripper = new PDFTextStripper();
 			String pdfFullText = pdfStripper.getText(pdDocument);
@@ -377,16 +382,15 @@ Optionspayment.click();
 			Assert.assertTrue(pdfFullText.contains(pincode));
 			Assert.assertTrue(pdfFullText.contains(Mobilenumber));
 			Assert.assertTrue(pdfFullText.contains(name));
-			  try {
-		            // Command to refresh the project in Eclipse or system
-		            String command = "cmd /c echo. & xcopy /d /e /y . .";
-		            Runtime.getRuntime().exec(command); // Executes refresh command
-		            System.out.println("Project refreshed successfully.");
-		        } catch (IOException e) {
-		            e.printStackTrace();
-		            System.err.println("Error refreshing the project.");
+			Assert.assertTrue(pdfFullText.contains(Mode_Of_Payment));
+	
+		        } finally {
+		            // Ensure the PDF document is closed
+		            if (pdDocument != null) {
+		                pdDocument.close();
+		            }
 		        }
-			 File f=new File(pdfFilePath);
+				 File f=new File(pdfFilePath);
 
 			 if (f.exists()) {
 				    System.out.println("File exists, attempting to delete...");
