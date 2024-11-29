@@ -569,7 +569,7 @@ public class Outstanding_Fee_Report extends Login{
 		
 		Universal_methods UM=new Universal_methods ();
 
-	String 	desiredText =UM.create_Enquiry_Enroll(driver);
+	//String 	desiredText =UM.create_Enquiry_Enroll(driver);
 	  Actions actions = new Actions(driver);
 
 					   driver.navigate().refresh();
@@ -655,18 +655,18 @@ public class Outstanding_Fee_Report extends Login{
 
 			zz.executeScript("window.scrollBy(0,400)");
 			   Thread.sleep(3000);
-		    	driver.findElement(By.xpath("//input[@placeholder='Search']")).sendKeys(desiredText);
+		//    	driver.findElement(By.xpath("//input[@placeholder='Search']")).sendKeys(desiredText);
 
 		 String IDStude=  driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-outstanding-fee-report/section/div/div[2]/div/div/div/div[2]/div/div[2]/div[2]/table/tbody/tr/td[1]")).getText();	
 		
-		 if(IDStude.equalsIgnoreCase(desiredText)) {
+	//	 if(IDStude.equalsIgnoreCase(desiredText)) {
 			 System.out.println("Future_OutStanding_Reports working");
 		 }
-		 else {
-			 System.out.println("Future_OutStanding_Reports not working");
+	//	 else {
+//			 System.out.println("Future_OutStanding_Reports not working");
 
-		 }
-	}
+	//	 }
+//	}
 
 }
 

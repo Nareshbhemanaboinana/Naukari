@@ -59,14 +59,11 @@ public class Listeners3 extends ExtendreportsNG implements ITestListener {
         extentTest.get().log(Status.PASS, MarkupHelper.createLabel("<span style='color: black;'>Test is Pass</span><br><pre style='border: 1px solid green; padding: 10px; color: black; background-color: green; font-weight: bold;'>" + consoleOutputString + "</pre>", ExtentColor.GREEN));
 
     }
-
+ /*
     @Override
     public void onTestFailure(ITestResult results) {
         String consoleOutputString = consoleOutput.get().toString();
         consoleOutput.get().reset();
-      /*  extentTest.get().log(Status.FAIL, MarkupHelper.createLabel(
-        	    "<span style='background-color: red; color: black;'>Console Output:</span><br><pre style='border: 1px solid black; padding: 10px; color: black; background-color: #f2f2f2;'>"
-        	    + consoleOutputString + "</pre>", ExtentColor.RED)) */
         extentTest.get().log(Status.FAIL, MarkupHelper.createLabel("<span style='color: black;'>Test is Fail</span><br><pre style='border: 1px solid red; padding: 10px; color: black; background-color: red; font-weight: bold;'>" + consoleOutputString + "</pre>", ExtentColor.RED));
 
         extentTest.get().fail(results.getThrowable());
@@ -78,19 +75,65 @@ public class Listeners3 extends ExtendreportsNG implements ITestListener {
         File f = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         Date dt = new Date();
         DateFormat df1 = new SimpleDateFormat("dd_MM_yyyy_HH_MM_ss");
+        String reportDirectory = System.getProperty("user.dir") + "//Reports//Report_" + df1.format(dt) + "//";
+
+       
         try {
-            FileHandler.copy(f, new File(System.getProperty("user.dir") + "//Repots//index.html" + df1.format(dt) + ".png"));
+           // FileHandler.copy(f, new File(System.getProperty("user.dir") + "//Repots"+ df1.format(dt) + ".png"));
+            FileHandler.copy(f, new File(reportDirectory + "screenshot_" + df1.format(dt) + ".png"));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
             extentTest.get().addScreenCaptureFromPath(
-                    System.getProperty("user.dir") + "//Repots//index.html" + df1.format(dt) + ".png");
+                //   System.getProperty("user.dir") + "//Repots"+ df1.format(dt) + ".png");
+                    reportDirectory + "screenshot_" + df1.format(dt) + ".png");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+     */
+    @Override
+    public void onTestFailure(ITestResult results) {
+        String consoleOutputString = consoleOutput.get().toString();
+        consoleOutput.get().reset();
+        extentTest.get().log(Status.FAIL, MarkupHelper.createLabel("<span style='color: black;'>Test is Fail</span><br><pre style='border: 1px solid red; padding: 10px; color: black; background-color: red; font-weight: bold;'>" + consoleOutputString + "</pre>", ExtentColor.RED));
 
+        extentTest.get().fail(results.getThrowable());
+        
+        // Get the driver instance
+        try {
+            driver = (WebDriver) results.getTestClass().getRealClass().getField("driver").get(results.getInstance());
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+
+        // Take a screenshot
+        File f = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        Date dt = new Date();
+        DateFormat df1 = new SimpleDateFormat("dd_MM_yyyy_HH_MM_ss");
+
+        // Use the report directory from ExtendreportsNG
+        String reportDirectory = ExtendreportsNG.getReportDirectory();
+        
+        try {
+            // Save the screenshot in the same directory as the Extent report
+            FileHandler.copy(f, new File(reportDirectory + "screenshot_" + df1.format(dt) + ".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        try {
+            // Add the screenshot to the Extent report
+            extentTest.get().addScreenCaptureFromPath(
+                   reportDirectory + "screenshot_" + df1.format(dt) + ".png");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+  
 
     @Override
     public void onTestSkipped(ITestResult results) {

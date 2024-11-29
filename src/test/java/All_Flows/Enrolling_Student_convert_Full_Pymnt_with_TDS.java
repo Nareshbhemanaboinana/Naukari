@@ -7,6 +7,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class Enrolling_Student_convert_Full_Pymnt_with_TDS extends Login{
 	public void Enrolling_Student_convert_Full_Peyment_with_TDS() throws InterruptedException, FindFailed, HeadlessException, UnsupportedFlavorException, IOException {
 
 		String optionText2 = "TDS";
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+		   WebDriverWait wait = new WebDriverWait(driver, (10));
 
 		Faker fk = new Faker();
 		Universal_methods UM=new Universal_methods ();

@@ -5,6 +5,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class Miscellaneous_Fee_Collection_with_Student_id extends Login{
 		//	@Parameters({"optionText2"})
 
 		
-	    WebDriverWait wait = new WebDriverWait(driver, 10);
+		   WebDriverWait wait = new WebDriverWait(driver, (10));
 
 	    String optionText2	 = "TDS";
 			

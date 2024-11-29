@@ -2,6 +2,7 @@ package All_Flows;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -47,7 +48,7 @@ public class Apply_Discount {
 
 	driver.findElement(By.id("proceed-link")).click();  */
    driver.navigate().refresh();
-   WebDriverWait wait = new WebDriverWait(driver, 10);
+   WebDriverWait wait = new WebDriverWait(driver, (10));
 
 	driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	Thread.sleep(4000);
