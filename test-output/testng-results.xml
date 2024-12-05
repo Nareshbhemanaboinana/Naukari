@@ -1,31 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-11-27T10:33:35 IST" name="Default suite" finished-at="2024-11-27T10:38:07 IST" duration-ms="271727">
+  <suite started-at="2024-12-05T15:11:16 IST" name="Default suite" finished-at="2024-12-05T15:14:21 IST" duration-ms="185385">
     <groups>
     </groups>
-    <test started-at="2024-11-27T10:33:35 IST" name="Default test" finished-at="2024-11-27T10:38:07 IST" duration-ms="271727">
+    <test started-at="2024-12-05T15:11:16 IST" name="Default test" finished-at="2024-12-05T15:14:21 IST" duration-ms="185385">
       <class name="Enquiry.Adding_college_level_Enquiry">
-        <test-method is-config="true" signature="TEEMSLOGIN()[pri:0, instance:Enquiry.Adding_college_level_Enquiry@71def8f8]" started-at="2024-11-27T10:33:35 IST" name="TEEMSLOGIN" finished-at="2024-11-27T10:33:47 IST" duration-ms="11072" status="PASS">
+        <test-method is-config="true" signature="TEEMSLOGIN()[pri:0, instance:Enquiry.Adding_college_level_Enquiry@78123e82]" started-at="2024-12-05T15:11:16 IST" name="TEEMSLOGIN" finished-at="2024-12-05T15:11:28 IST" duration-ms="11783" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TEEMSLOGIN -->
-        <test-method signature="Creating_college_level_Enquiry()[pri:0, instance:Enquiry.Adding_college_level_Enquiry@71def8f8]" started-at="2024-11-27T10:33:47 IST" name="Creating_college_level_Enquiry" finished-at="2024-11-27T10:35:52 IST" duration-ms="125014" status="PASS">
+        <test-method signature="Creating_college_level_Enquiry()[pri:0, instance:Enquiry.Adding_college_level_Enquiry@78123e82]" started-at="2024-12-05T15:11:28 IST" name="Creating_college_level_Enquiry" finished-at="2024-12-05T15:14:21 IST" duration-ms="173545" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Creating_college_level_Enquiry -->
       </class> <!-- Enquiry.Adding_college_level_Enquiry -->
-      <class name="Enquiry.Enrolling_Student">
-        <test-method is-config="true" signature="TEEMSLOGIN()[pri:0, instance:Enquiry.Enrolling_Student@37d4349f]" started-at="2024-11-27T10:35:52 IST" name="TEEMSLOGIN" finished-at="2024-11-27T10:36:03 IST" duration-ms="11899" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TEEMSLOGIN -->
-        <test-method signature="Enrolling()[pri:0, instance:Enquiry.Enrolling_Student@37d4349f]" started-at="2024-11-27T10:36:03 IST" name="Enrolling" finished-at="2024-11-27T10:38:07 IST" depends-on-methods="Enquiry.Adding_college_level_Enquiry.Creating_college_level_Enquiry" duration-ms="123702" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Enrolling -->
-      </class> <!-- Enquiry.Enrolling_Student -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

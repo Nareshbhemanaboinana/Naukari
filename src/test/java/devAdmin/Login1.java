@@ -54,26 +54,31 @@ public class Login1 {
 	 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
 	    
-     driver.get("https://dev.syngymaxim.com/TIME_Web/#/admin/schllevel");
-   //  driver.get("https://teems3qa.teems.in/web/#/authentication/signin");
+    driver.get("https://dev.syngymaxim.com/TIME_Web/#/admin/schllevel");
+  //  driver.get("https://teems3qa.teems.in/web/#/authentication/signin");
 
 		driver.manage().window().maximize();
 	//	Thread.sleep(3000);
 
        driver.navigate().refresh();
-   /*
-	driver.findElement(By.id("details-button")).click();
-	//	Thread.sleep(2000);
+       
+   /*    if(driver.findElement(By.id("details-button")).isDisplayed()) {
+    		driver.findElement(By.id("details-button")).click();
+    			Thread.sleep(2000);
 
-		driver.findElement(By.id("proceed-link")).click();
-	//	Thread.sleep(2000); 
+    			driver.findElement(By.id("proceed-link")).click();
+    			Thread.sleep(2000); 
   
-        */
+       }
+       else {
+    	   driver.navigate().refresh();
+       } */
+   
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 	WebElement  Login= driver.findElement(By.xpath("//input[@formcontrolname='username']"));
 	//Login.sendKeys(uid);
-	Login.sendKeys("Chennai_Office-I");
+	Login.sendKeys("Chennai_Office-II");
 
 	WebElement  pswd= driver.findElement(By.xpath("//input[@formcontrolname='password']"));
 			pswd.sendKeys("Test@1231");

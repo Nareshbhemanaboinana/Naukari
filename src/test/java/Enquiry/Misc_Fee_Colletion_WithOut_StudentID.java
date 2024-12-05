@@ -1,5 +1,7 @@
 package Enquiry;
 
+import java.util.concurrent.TimeUnit;
+
 import org.testng.annotations.Test;
 
 import com.github.javafaker.Faker;
@@ -10,6 +12,11 @@ public class Misc_Fee_Colletion_WithOut_StudentID extends Misc_feeCollection {
 	
 	@Test
 	public void Misc_Fee_Colletion_With_Out_StudentID () throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	
+	String[] Payments= {"Cash","DD/Cheque","Credit Card","TDS","Others"};
+		
+	    for(String Payment:Payments) { 
 		
 		Faker fk = new Faker();
 		String Name = fk.name().firstName();
@@ -27,7 +34,7 @@ public class Misc_Fee_Colletion_WithOut_StudentID extends Misc_feeCollection {
 		
 		Misc_feeCollection.selectdropdownbytext(driver, "Towards", " ISB Application - 4000 ");
 
-		Misc_feeCollection.selectdropdownbytext(driver, "Mode of Payment", "Cash");
+		Misc_feeCollection.selectingmodeofpayment(driver, Payment);
 		
 		Misc_feeCollection.ClickOnOthersButton(driver);
 		
@@ -39,8 +46,9 @@ public class Misc_Fee_Colletion_WithOut_StudentID extends Misc_feeCollection {
 		
 		Misc_feeCollection.printReceiptDetails(driver);
 		
+		driver.navigate().refresh();
 		
 	}
 
-
+	}
 }

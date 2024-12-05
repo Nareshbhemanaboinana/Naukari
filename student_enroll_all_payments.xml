@@ -3,100 +3,96 @@
 <listeners>
         <listener class-name="Components.Listeners"/>
 </listeners>
-    <test name="ParameterizedTestMethodCash">
+       <test name="ParameterizedTestMethodCash">
         <classes>
-            <class name="All_Flows.Student_Fresh_subpayment_complete_flow_Cash">
+            <class name="Enquiry.Enrolling_Student">
                 <methods>
-                    <include name="Student_payment_complete_flow_Cash">
-                        <parameter name="optionText2" value="Cash"/>
+                    <include name="Enrolling">
+                        <parameter name="Options" value="Cash" />
                     </include>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="ParameterizedTestMethodDD/Cheque">
+    
+    <test name="ParameterizedTestMethodDDCheque">
         <classes>
-            <class name="All_Flows.Student_Fresh_subpayment_complete_flow_Cash">
+            <class name="Enquiry.Enrolling_Student">
                 <methods>
-                    <include name="Student_payment_complete_flow_Cash">
-                        <parameter name="optionText2" value="DD/Cheque"/>
+                    <include name="Enrolling">
+                        <parameter name="Options" value="DD/Cheque" />
                     </include>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="ParameterizedTestMethodCredit Card">
+    
+    <test name="ParameterizedTestMethodCreditCard">
         <classes>
-            <class name="All_Flows.Student_Fresh_subpayment_complete_flow_Cash">
+            <class name="Enquiry.Enrolling_Student">
                 <methods>
-                    <include name="Student_payment_complete_flow_Cash">
-                        <parameter name="optionText2" value="Credit Card"/>
+                    <include name="Enrolling">
+                        <parameter name="Options" value="Credit Card" />
                     </include>
                 </methods>
             </class>
         </classes>
     </test>
-  <test name="ParameterizedTestMethodNEFT">
+    
+    <test name="ParameterizedTestMethodNEFT">
         <classes>
-            <class name="All_Flows.Student_Fresh_subpayment_complete_flow_Cash">
+            <class name="Enquiry.Enrolling_Student">
                 <methods>
-                    <include name="Student_payment_complete_flow_Cash">
-                        <parameter name="optionText2" value="NEFT"/>
+                    <include name="Enrolling">
+                        <parameter name="Options" value="NEFT" />
                     </include>
                 </methods>
             </class>
         </classes>
     </test>
-<test name="ParameterizedTestMethodRTGS">
+    
+    <test name="ParameterizedTestMethodRTGS">
         <classes>
-            <class name="All_Flows.Student_Fresh_subpayment_complete_flow_Cash">
+            <class name="Enquiry.Enrolling_Student">
                 <methods>
-                    <include name="Student_payment_complete_flow_Cash">
-                        <parameter name="optionText2" value="RTGS"/>
+                    <include name="Enrolling">
+                        <parameter name="Options" value="RTGS" />
                     </include>
                 </methods>
             </class>
         </classes>
     </test>
-<test name="ParameterizedTestMethodDirect Transfer to Bank">
+    
+    <test name="ParameterizedTestMethodDirectTransfer">
         <classes>
-            <class name="All_Flows.Student_Fresh_subpayment_complete_flow_Cash">
+            <class name="Enquiry.Enrolling_Student">
                 <methods>
-                    <include name="Student_payment_complete_flow_Cash">
-                        <parameter name="optionText2" value="Direct Transfer to Bank"/>
+                    <include name="Enrolling">
+                        <parameter name="Options" value="Direct Transfer to Bank" />
                     </include>
                 </methods>
             </class>
         </classes>
     </test>
-<test name="ParameterizedTestMethodTDS">
+    
+    <test name="ParameterizedTestMethodTDS">
         <classes>
-            <class name="All_Flows.Student_Fresh_subpayment_complete_flow_Cash">
+            <class name="Enquiry.Enrolling_Student">
                 <methods>
-                    <include name="Student_payment_complete_flow_Cash">
-                        <parameter name="optionText2" value="TDS"/>
+                    <include name="Enrolling">
+                        <parameter name="Options" value="TDS" />
                     </include>
                 </methods>
             </class>
         </classes>
     </test>
-<test name="ParameterizedTestMethodOthers">
+    
+    <test name="ParameterizedTestMethodOthers">
         <classes>
-            <class name="All_Flows.Student_Fresh_subpayment_complete_flow_Cash">
+            <class name="Enquiry.Enrolling_Student">
                 <methods>
-                    <include name="Student_payment_complete_flow_Cash">
-                        <parameter name="optionText2" value="Others"/>
-                    </include>
-                </methods>
-            </class>
-        </classes>
-    </test>
-<test name="ParameterizedTestMethodUPI">
-        <classes>
-            <class name="All_Flows.Student_Fresh_subpayment_complete_flow_Cash">
-                <methods>
-                    <include name="Student_payment_complete_flow_Cash">
-                        <parameter name="optionText2" value="UPI"/>
+                    <include name="Enrolling">
+                        <parameter name="Options" value="Others" />
                     </include>
                 </methods>
             </class>

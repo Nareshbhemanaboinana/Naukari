@@ -118,6 +118,8 @@ public class Adding_college_level_Enquiry extends College_Enquiry {
 		College_Enquiry.clickSameasmailingaddress(driver);
 
 		College_Enquiry.clicknextadd(driver);
+		
+		College_Enquiry.scrollBy(driver, 0, 500);
 
 		College_Enquiry.clicknextad(driver);
 

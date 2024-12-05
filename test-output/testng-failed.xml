@@ -9,12 +9,6 @@
           <include name="TEEMSLOGIN"/>
         </methods>
       </class> <!-- Enquiry.Adding_college_level_Enquiry -->
-      <class name="Enquiry.Enrolling_Student">
-        <methods>
-          <include name="Enrolling"/>
-          <include name="TEEMSLOGIN"/>
-        </methods>
-      </class> <!-- Enquiry.Enrolling_Student -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

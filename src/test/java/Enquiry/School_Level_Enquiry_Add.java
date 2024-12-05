@@ -1,6 +1,7 @@
 package Enquiry;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -21,7 +22,8 @@ public class School_Level_Enquiry_Add extends Login1{
 	
 	@Test
 	public void school_Level_Enquiry_Adding() throws InterruptedException {
-			
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
 
 		Faker fk = new Faker();
 	    String randomPhoneNumber = fk.number().digits(10);
