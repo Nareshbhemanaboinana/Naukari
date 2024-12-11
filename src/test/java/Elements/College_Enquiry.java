@@ -145,7 +145,7 @@ public class College_Enquiry extends Login1 {
 		
 	  }
 	  public  static void scrollviewandclickcollege_level_Enquiry(WebDriver driver) throws InterruptedException {
-		  WebDriverWait wait = new WebDriverWait(driver, 10);
+		  WebDriverWait wait = new WebDriverWait(driver, 15);
 
 	        // Wait until the element is visible and scroll into view
 	        WebElement svenextt = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='#/admin/collegelevel']")));
