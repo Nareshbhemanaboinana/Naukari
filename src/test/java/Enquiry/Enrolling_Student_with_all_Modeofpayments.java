@@ -22,11 +22,11 @@ public class Enrolling_Student_with_all_Modeofpayments extends Enrollement {
 	public static String firstint;
 
 	@Test(dependsOnMethods = {"Enquiry.Adding_college_level_Enquiry.Creating_college_level_Enquiry"})
-	@Parameters({"Options"})
-	public void Enrolling_with_All_ModeofPayments(String Modeofpayment) throws InterruptedException, IOException, AWTException {
+	//@Parameters({"Options"})
+	public void Enrolling_with_All_ModeofPayments() throws InterruptedException, IOException, AWTException {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		//="Cash";
+		String Modeofpayment="Cash";
 		String BatchCode = "BCD01";
 		Enrollement.scrollviewandclickindividualstdt(driver);
 

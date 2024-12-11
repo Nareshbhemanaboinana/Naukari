@@ -34,10 +34,17 @@ public class Login1 {
 		System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
 	//	System.setProperty("webdriver.gecko.driver", "./SSD//geckodriver.exe");
 		//System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
+		 String downloadPath = "C:\\selenium\\downloads";
 
+		 ChromeOptions options = new ChromeOptions();
+		 options.addArguments("--no-sandbox");
+		 options.addArguments("--disable-dev-shm-usage");
+		 options.addArguments("--disable-gpu");
+		 options.addArguments("--window-size=1920,1080");
+		 // Do NOT add headless mode unless necessary
 	     
 
-		 driver=new ChromeDriver(); 
+		 driver=new ChromeDriver(options); 
 	       //  driver = new ChromeDriver();
 	       //   driver = new FirefoxDriver();
 	 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);

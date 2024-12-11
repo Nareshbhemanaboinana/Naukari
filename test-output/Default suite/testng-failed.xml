@@ -5,12 +5,14 @@
     <classes>
       <class name="Enquiry.Adding_college_level_Enquiry">
         <methods>
+          <include name="teardown"/>
           <include name="Creating_college_level_Enquiry"/>
           <include name="TEEMSLOGIN"/>
         </methods>
       </class> <!-- Enquiry.Adding_college_level_Enquiry -->
       <class name="Enquiry.Enrolling_Student_with_all_Modeofpayments">
         <methods>
+          <include name="teardown"/>
           <include name="Enrolling_with_All_ModeofPayments"/>
           <include name="TEEMSLOGIN"/>
         </methods>
