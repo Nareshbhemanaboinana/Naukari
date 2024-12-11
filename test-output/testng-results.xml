@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-05T15:11:16 IST" name="Default suite" finished-at="2024-12-05T15:14:21 IST" duration-ms="185385">
+  <suite started-at="2024-12-11T13:23:43 IST" name="Default suite" finished-at="2024-12-11T13:26:12 IST" duration-ms="149188">
     <groups>
     </groups>
-    <test started-at="2024-12-05T15:11:16 IST" name="Default test" finished-at="2024-12-05T15:14:21 IST" duration-ms="185385">
+    <test started-at="2024-12-11T13:23:43 IST" name="Default test" finished-at="2024-12-11T13:26:12 IST" duration-ms="149188">
       <class name="Enquiry.Adding_college_level_Enquiry">
-        <test-method is-config="true" signature="TEEMSLOGIN()[pri:0, instance:Enquiry.Adding_college_level_Enquiry@78123e82]" started-at="2024-12-05T15:11:16 IST" name="TEEMSLOGIN" finished-at="2024-12-05T15:11:28 IST" duration-ms="11783" status="PASS">
+        <test-method is-config="true" signature="TEEMSLOGIN()[pri:0, instance:Enquiry.Adding_college_level_Enquiry@78123e82]" started-at="2024-12-11T13:23:43 IST" name="TEEMSLOGIN" finished-at="2024-12-11T13:23:51 IST" duration-ms="8801" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TEEMSLOGIN -->
-        <test-method signature="Creating_college_level_Enquiry()[pri:0, instance:Enquiry.Adding_college_level_Enquiry@78123e82]" started-at="2024-12-05T15:11:28 IST" name="Creating_college_level_Enquiry" finished-at="2024-12-05T15:14:21 IST" duration-ms="173545" status="PASS">
+        <test-method signature="Creating_college_level_Enquiry()[pri:0, instance:Enquiry.Adding_college_level_Enquiry@78123e82]" started-at="2024-12-11T13:23:51 IST" name="Creating_college_level_Enquiry" finished-at="2024-12-11T13:26:12 IST" duration-ms="140349" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Creating_college_level_Enquiry -->

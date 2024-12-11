@@ -60,23 +60,15 @@ public class Listeners extends ExtendreportsNG implements ITestListener{
 
 	@Override
 	public void onTestSuccess(ITestResult results) {
-		//test.log(Status.PASS, "Test Pass");
-     //   test.log(Status.PASS, "Test is Pass" + consoleOutput.toString());
-		//test.log(Status.PASS, MarkupHelper.createLabel("<span style='color: black;'>Test is Pass</span><br><pre style='border: 1px solid green; padding: 10px; color: black; background-color: green; font-weight: bold;'>" + consoleOutput.toString() + "</pre>", ExtentColor.GREEN));
 		  String consoleOutputString = consoleOutput.toString();
-
 		    // Reset console output for this method
+
 		    consoleOutput.reset();
 
-		    // Your existing code to log the test success status
 		    test.log(Status.PASS, MarkupHelper.createLabel("<span style='color: black;'>Test is Pass</span><br><pre style='border: 1px solid green; padding: 10px; color: black; background-color: green; font-weight: bold;'>" + consoleOutputString + "</pre>", ExtentColor.GREEN));
 	}
 	@Override
 	public void onTestFailure( ITestResult results ) {
-		
-	//	test.log(Status.FAIL, "test fail");
-       // test.log(Status.FAIL, "Test is fail" + consoleOutput.toString());
-		//test.log(Status.FAIL, MarkupHelper.createLabel("<span style='color: black;'>Test is Fail</span><br><pre style='border: 1px solid red; padding: 10px; color: black; background-color: red; font-weight: bold;'>" + consoleOutput.toString() + "</pre>", ExtentColor.RED));
 		  String consoleOutputString = consoleOutput.toString();
 
 		    // Reset console output for this method

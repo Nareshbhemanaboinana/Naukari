@@ -51,11 +51,11 @@ public class Adding_college_level_Enquiry extends College_Enquiry {
 		String gstNumber = fk.regexify("[A-Z0-9]{16}"); // Example: Generate a 12-character alphanumeric string
 		 MobileNumber = fk.number().digits(9); // Example: Generate an 8-digit number
 		String TelephoneNumber = fk.number().digits(9); // Example: Generate an 8-digit number
+		int numdate = fk.number().numberBetween(1, 31);
 
 		Pincode=fk.number().digits(6);
-		Address2 = fk.address().fullAddress();
+		Address2 = "Ram nagar Road Number"+numdate+", float NO:"+numdate;
 
-		int numdate = fk.number().numberBetween(1, 31);
 
 		dateofbith = numdate+"/07/1994";
 		gst = gstNumber;
@@ -87,7 +87,8 @@ public class Adding_college_level_Enquiry extends College_Enquiry {
 
 		College_Enquiry.selectdropdownbytext(driver, "Sub Course", Subcoursename);
 
-		College_Enquiry.scrollBy(driver, 0, 600);
+		College_Enquiry.scrollBy(driver, 0, 500);
+		College_Enquiry.scrollBy(driver, 0, 500);
 
 		College_Enquiry.clickNextbutton(driver);
 
@@ -119,6 +120,7 @@ public class Adding_college_level_Enquiry extends College_Enquiry {
 
 		College_Enquiry.clicknextadd(driver);
 		
+		College_Enquiry.scrollBy(driver, 0, 500);
 		College_Enquiry.scrollBy(driver, 0, 500);
 
 		College_Enquiry.clicknextad(driver);

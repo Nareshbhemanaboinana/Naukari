@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -25,11 +26,11 @@ public class Enrolling_Student extends Enrollement {
 
 		String Modeofpayment = "DD/Cheque";
 
-		String BatchCode = "BCD0001";
+		String BatchCode = "BCD01";
 		Enrollement.scrollviewandclickindividualstdt(driver);
 
 		EnterEnquiryID(driver, Adding_college_level_Enquiry.id);
-		
+				
 		Enrollement.scrollBy(driver, 0, 400);
 
 		Enrollement.clickNextbutton(driver);
@@ -41,6 +42,9 @@ public class Enrolling_Student extends Enrollement {
 		firstint = Enrollement.firstinstallment(driver);
 
 		Enrollement.selectingmodeofpayment(driver, Modeofpayment, firstint);
+		
+		Enrollement.scrollBy(driver, 0, 200);
+
 
 		Enrollement.selectdropdownbytext(driver, "Form Filled By", "Parents ");
 
@@ -71,11 +75,11 @@ public class Enrolling_Student extends Enrollement {
 		StruntID = Results[0];
 		ReceiptNo = Results[1];
 
+		driver.findElement(By.xpath("//button[text()='Print Receipt']")).click();
+
 		Subsequent.Click_Print_Receipt_Button(driver);
 
-		/*
-		 * 
-		 * Enrollement.Click_Print_Receipt_Save_PDF_in_Project_Reposit(driver);
+		/* Enrollement.Click_Print_Receipt_Save_PDF_in_Project_Reposit(driver);
 		 * 
 		 * Enrollement.validatetheRecipt(driver, StruntID, ReceiptNo,
 		 * Adding_college_level_Enquiry.Subcoursename,

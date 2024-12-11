@@ -14,16 +14,17 @@ public class Misc_Fee_Colletion_With_StudentID extends Misc_feeCollection {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		String StudentID =Enrolling_Student.StruntID; 
+		
 	
 		String[] Payments= {"Cash","DD/Cheque","Credit Card","TDS","Others"};
 		
 	    for(String Payment:Payments) { 
 		Misc_feeCollection.ScrollViewAndClickMissFeeCollection(driver);
 		
-		Misc_feeCollection.EnterStudentID(driver, "CCRGB4A027");
+		Misc_feeCollection.EnterStudentID(driver, StudentID);
 		
 		Misc_feeCollection.scrollBy(driver, 0, 500);
-		
+		 
 		Misc_feeCollection.ClickOnNextButton(driver);
 		
 		Misc_feeCollection.selectdropdownbytext(driver, "Place of Supply", " Andhra Pradesh ");

@@ -5,21 +5,33 @@
 </listeners>
        <test name="ParameterizedTestMethodCash">
         <classes>
-            <class name="Enquiry.Enrolling_Student">
+            <!-- Include the class for the dependent method -->
+            <class name="Enquiry.Adding_college_level_Enquiry">
                 <methods>
-                    <include name="Enrolling">
-                        <parameter name="Options" value="Cash" />
-                    </include>
+                    <include name="Creating_college_level_Enquiry"/>
+                </methods>
+            </class>
+            <!-- Include the class for the main method -->
+            <class name="Enquiry.Enrolling_Student_with_all_Modeofpayments">
+                <methods>
+                    <include name="Enrolling_with_All_ModeofPayments"/>
+                    <parameter name="Options" value="Cash"/>
                 </methods>
             </class>
         </classes>
     </test>
-    
+   <!--   
     <test name="ParameterizedTestMethodDDCheque">
         <classes>
-            <class name="Enquiry.Enrolling_Student">
+            <class name="Enquiry.Adding_college_level_Enquiry">
                 <methods>
-                    <include name="Enrolling">
+                    <include name="Creating_college_level_Enquiry"/>
+                </methods>
+            </class>
+
+            <class name="Enquiry.Enrolling_Student_with_all_Modeofpayments">
+                <methods>
+                    <include name="Enrolling_with_All_ModeofPayments">
                         <parameter name="Options" value="DD/Cheque" />
                     </include>
                 </methods>
@@ -29,9 +41,15 @@
     
     <test name="ParameterizedTestMethodCreditCard">
         <classes>
-            <class name="Enquiry.Enrolling_Student">
+            <class name="Enquiry.Adding_college_level_Enquiry">
                 <methods>
-                    <include name="Enrolling">
+                    <include name="Creating_college_level_Enquiry"/>
+                </methods>
+            </class>
+
+            <class name="Enquiry.Enrolling_Student_with_all_Modeofpayments">
+                <methods>
+                    <include name="Enrolling_with_All_ModeofPayments">
                         <parameter name="Options" value="Credit Card" />
                     </include>
                 </methods>
@@ -41,9 +59,15 @@
     
     <test name="ParameterizedTestMethodNEFT">
         <classes>
-            <class name="Enquiry.Enrolling_Student">
+            <class name="Enquiry.Adding_college_level_Enquiry">
                 <methods>
-                    <include name="Enrolling">
+                    <include name="Creating_college_level_Enquiry"/>
+                </methods>
+            </class>
+
+            <class name="Enquiry.Enrolling_Student_with_all_Modeofpayments">
+                <methods>
+                    <include name="Enrolling_with_All_ModeofPayments">
                         <parameter name="Options" value="NEFT" />
                     </include>
                 </methods>
@@ -53,9 +77,15 @@
     
     <test name="ParameterizedTestMethodRTGS">
         <classes>
-            <class name="Enquiry.Enrolling_Student">
+            <class name="Enquiry.Adding_college_level_Enquiry">
                 <methods>
-                    <include name="Enrolling">
+                    <include name="Creating_college_level_Enquiry"/>
+                </methods>
+            </class>
+
+            <class name="Enquiry.Enrolling_Student_with_all_Modeofpayments">
+                <methods>
+                    <include name="Enrolling_with_All_ModeofPayments">
                         <parameter name="Options" value="RTGS" />
                     </include>
                 </methods>
@@ -65,9 +95,15 @@
     
     <test name="ParameterizedTestMethodDirectTransfer">
         <classes>
-            <class name="Enquiry.Enrolling_Student">
+            <class name="Enquiry.Adding_college_level_Enquiry">
                 <methods>
-                    <include name="Enrolling">
+                    <include name="Creating_college_level_Enquiry"/>
+                </methods>
+            </class>
+
+            <class name="Enquiry.Enrolling_Student_with_all_Modeofpayments">
+                <methods>
+                    <include name="Enrolling_with_All_ModeofPayments">
                         <parameter name="Options" value="Direct Transfer to Bank" />
                     </include>
                 </methods>
@@ -77,9 +113,15 @@
     
     <test name="ParameterizedTestMethodTDS">
         <classes>
-            <class name="Enquiry.Enrolling_Student">
+            <class name="Enquiry.Adding_college_level_Enquiry">
                 <methods>
-                    <include name="Enrolling">
+                    <include name="Creating_college_level_Enquiry"/>
+                </methods>
+            </class>
+
+            <class name="Enquiry.Enrolling_Student_with_all_Modeofpayments">
+                <methods>
+                    <include name="Enrolling_with_All_ModeofPayments">
                         <parameter name="Options" value="TDS" />
                     </include>
                 </methods>
@@ -89,16 +131,22 @@
     
     <test name="ParameterizedTestMethodOthers">
         <classes>
-            <class name="Enquiry.Enrolling_Student">
+            <class name="Enquiry.Adding_college_level_Enquiry">
                 <methods>
-                    <include name="Enrolling">
+                    <include name="Creating_college_level_Enquiry"/>
+                </methods>
+            </class>
+
+            <class name="Enquiry.Enrolling_Student_with_all_Modeofpayments">
+                <methods>
+                    <include name="Enrolling_with_All_ModeofPayments">
                         <parameter name="Options" value="Others" />
                     </include>
                 </methods>
             </class>
         </classes>
     </test>
-
+-->
 </suite>
 
 

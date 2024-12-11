@@ -62,7 +62,7 @@ public class College_Enquiry extends Login1 {
 		Thread.sleep(2000);
 
 		WebDriverWait wait=new  WebDriverWait(driver,20);
-	WebElement 	Next =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()=' Next ']")));
+	WebElement 	Next =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[@class='mat-button-wrapper'])[5]")));
 	Next.click();
 	//driver.findElement(By.xpath("//span[text()=' Next ']")).click();
 	}
@@ -138,7 +138,8 @@ public class College_Enquiry extends Login1 {
 
 		//	WebElement option=driver.findElement(By.xpath("//*[text()='"+dropdownoption+"']"));
 			zz.executeScript("arguments[0].click()", option);
-			
+	        Thread.sleep(1000);
+
 			
 
 		
@@ -167,9 +168,10 @@ public class College_Enquiry extends Login1 {
 	  }
 		public static void Nextbuttonclick(WebDriver driver ) throws InterruptedException {
 			JavascriptExecutor zz = (JavascriptExecutor) driver;
-			Thread.sleep(1000);
+			Thread.sleep(3000);
+			WebElement next=driver.findElement(By.xpath("(//*[@class='mat-button-wrapper'])[7]"));
 
-		WebElement next=driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[2]/div/div/div/form/div[2]/button[2]/span[1]"));
+		//WebElement next=driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[2]/div/div/div/form/div[2]/button[2]/span[1]"));
 
 			zz.executeScript("arguments[0].click()", next);
 
@@ -182,14 +184,20 @@ public class College_Enquiry extends Login1 {
 
 		public static void clicknextadd(WebDriver driver ) {
 
-        driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[2]/button[2]/span[1]")).click();
+			driver.findElement(By.xpath("(//*[@class='mat-button-wrapper'])[9]")).click();
+       // driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[3]/div/div/div/form/div[2]/button[2]/span[1]")).click();
 
 	  }
 		public static void clicknextad(WebDriver driver ) throws InterruptedException {
 
-			Thread.sleep(2000);
-		
-	  	driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[2]/div/button[2]/span[1]")).click();
+			 WebDriverWait wait = new WebDriverWait(driver, 10);
+			 
+			  WebElement nextButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+		                "(//*[@class='mat-button-wrapper'])[15]")));
+		      
+		       // WebElement nextButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+		         //       "/html/body/app-root/app-main-layout/app-collegelevel/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/mat-vertical-stepper/div[4]/div/div/div/div[2]/div/button[2]/span[1]")));
+		        nextButton.click();		
 		}
 		
 		

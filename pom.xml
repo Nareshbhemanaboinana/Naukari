@@ -134,6 +134,7 @@
           <configuration>
              <suiteXmlFiles>
                   <suiteFile>resumeupdate.xml</suiteFile>
+                   <suiteFile>student_enroll_all_payments.xml</suiteFile>
              </suiteXmlFiles>
          </configuration>       
         </plugin>

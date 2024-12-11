@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -20,12 +21,13 @@ public class Enrolling_Student_with_all_Modeofpayments extends Enrollement {
 
 	public static String firstint;
 
-	@Test(dependsOnMethods = { "Enquiry.Adding_college_level_Enquiry.Creating_college_level_Enquiry" })
+	@Test(dependsOnMethods = {"Enquiry.Adding_college_level_Enquiry.Creating_college_level_Enquiry"})
 	@Parameters({"Options"})
 	public void Enrolling_with_All_ModeofPayments(String Modeofpayment) throws InterruptedException, IOException, AWTException {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		String BatchCode = "BCD0001";
+		//="Cash";
+		String BatchCode = "BCD01";
 		Enrollement.scrollviewandclickindividualstdt(driver);
 
 		EnterEnquiryID(driver, Adding_college_level_Enquiry.id);
@@ -69,8 +71,7 @@ public class Enrolling_Student_with_all_Modeofpayments extends Enrollement {
 		ReceiptNo = Results[1];
 		
 			
-		
-		Enrollement.Click_Print_Receipt_Save_PDF_in_Project_Reposit(driver);
+	Enrollement.Click_Print_Receipt_Save_PDF_in_Project_Reposit(driver);
 
 		Enrollement.validatetheRecipt(driver,  StruntID, ReceiptNo, Adding_college_level_Enquiry.Subcoursename,
 				Adding_college_level_Enquiry.Name, Adding_college_level_Enquiry.Address1,

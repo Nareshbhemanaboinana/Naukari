@@ -24,7 +24,7 @@ public class Login1 {
 	
 	public   WebDriver driver;
     
-	public static String downloadPath=System.getProperty("user.dir");
+	//public static String downloadPath=System.getProperty("user.dir");
     
 	
 	@BeforeMethod
@@ -34,21 +34,10 @@ public class Login1 {
 		System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
 	//	System.setProperty("webdriver.gecko.driver", "./SSD//geckodriver.exe");
 		//System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
-	HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 
-		chromePrefs.put("profile.default_content_settings.popups", 0);
+	     
 
-
-		chromePrefs.put("plugins.always_open_pdf_externally", true); // Automatically open PDF externally (bypass Save As)
-
-		chromePrefs.put("download.default_directory", downloadPath);
-
-		ChromeOptions options=new ChromeOptions();
-
-		options.setExperimentalOption("prefs", chromePrefs);
-
-
-		 driver=new ChromeDriver(options); 
+		 driver=new ChromeDriver(); 
 	       //  driver = new ChromeDriver();
 	       //   driver = new FirefoxDriver();
 	 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
@@ -73,12 +62,12 @@ public class Login1 {
        else {
     	   driver.navigate().refresh();
        } */
-   
+
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 	WebElement  Login= driver.findElement(By.xpath("//input[@formcontrolname='username']"));
 	//Login.sendKeys(uid);
-	Login.sendKeys("Chennai_Office-II");
+	Login.sendKeys("Jaipur_Office-I");
 
 	WebElement  pswd= driver.findElement(By.xpath("//input[@formcontrolname='password']"));
 			pswd.sendKeys("Test@1231");
@@ -92,12 +81,12 @@ public class Login1 {
 	}
 		 
 
-	/*	
+	
 	@AfterMethod()
 	public void teardown() {
 		driver.quit();
 	}	 
-	*/
+	
 }
 	
 	

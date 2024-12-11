@@ -46,7 +46,8 @@ public class Enrollement extends Login1 {
 
 	public static void clickNextbutton(WebDriver driver) {
 
-		driver.findElement(By.xpath("//span[text()=' Next ']")).click();
+		driver.findElement(By.xpath("(//*[@class='mat-button-wrapper'])[7]")).click();
+		//driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-individualf/section/div/div[2]/div/div/div/mat-tab-group/div/mat-tab-body[1]/div/div/div/mat-vertical-stepper/div[1]/div/div/div/form/div[2]/button/span[1]")).click();
 
 	}
 
@@ -272,7 +273,7 @@ public class Enrollement extends Login1 {
 
 	public static void scrollBy(WebDriver driver, int xPixels, int yPixels) throws InterruptedException {
 		
-		Thread.sleep(2000);
+		//Thread.sleep(3000);
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 
 	        wait.until((ExpectedCondition<Boolean>) wd -> 
@@ -365,12 +366,13 @@ public class Enrollement extends Login1 {
 			e.printStackTrace();
 			System.err.println("Error refreshing the project.");
 		}
+		
 
 		Thread.sleep(3000);
 
 		// PDDocument pdDocument = PDDocument.load(new File(pdfFilePath));
 		String pathfile = "C:\\selenium\\TEEMS_3.0\\TeemsReceipt.pdf";
-
+	
 		File pdfFile = new File(pathfile);
 		PDDocument pdDocument = null;
 		try {
@@ -539,7 +541,7 @@ public class Enrollement extends Login1 {
 	        );
 	        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 	        jsExecutor.executeScript("window.scrollBy(arguments[0], arguments[1]);", 0, 500);
-			Thread.sleep(6000);
+			Thread.sleep(7000);
 
 		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()=' Close ']")));
 		element.click();
@@ -591,8 +593,9 @@ public class Enrollement extends Login1 {
 			throw new RuntimeException("Test failed because the popup message did not contain 'Successfully'.");
 
 		}
-
+		
 		Thread.sleep(13000);
+	       driver.switchTo().window(driver.getWindowHandle()); // Focus on the browser window
 
 		Robot robot = new Robot();
 		robot.delay(2000); // Wait for the print dialog to open
@@ -675,7 +678,7 @@ public class Enrollement extends Login1 {
 		robot.keyRelease(KeyEvent.VK_ENTER);
 System.out.println("click the enter button");
 		// Wait for the file to download
-		Thread.sleep(3000);
+		Thread.sleep(3000); 
 
 	}
 
