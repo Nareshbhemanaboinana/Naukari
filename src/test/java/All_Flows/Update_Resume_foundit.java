@@ -22,7 +22,7 @@ public class Update_Resume_foundit {
 
 
 		  ChromeOptions options = new ChromeOptions();
-	  options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
+	 // options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
 	        options.addArguments("--window-size=1920,1080");
 		
 
@@ -32,6 +32,8 @@ public class Update_Resume_foundit {
 		driver.get("https://www.foundit.in/rio/login");
 		driver.manage().window().maximize();
 	Thread.sleep(3000);
+    WebElement acceptCookiesButton = driver.findElement(By.id("acceptAll")); // Use appropriate locator
+    acceptCookiesButton.click();
 
 	driver.findElement(By.xpath("//div[@class='loginWith']")).click();
 	Thread.sleep(3000);
@@ -58,7 +60,7 @@ public class Update_Resume_foundit {
 	zz.executeScript("window.scrollBy(0,300)");
 	Thread.sleep(2000);
 
-    File file = new File("./Resume//Naresh Resume 4 years exp in manual and Automation.pdf"); 
+    File file = new File("./Resume//NareshResume4yearsexp.pdf"); 
     String filePath = file.getAbsolutePath();
 
     WebElement uploadElement = driver.findElement(By.id("inline-resume"));

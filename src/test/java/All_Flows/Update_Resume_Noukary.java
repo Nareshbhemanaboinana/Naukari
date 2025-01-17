@@ -29,7 +29,7 @@ public class Update_Resume_Noukary {
 
 
 		  ChromeOptions options = new ChromeOptions();
-	  options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
+	//  options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
 	        options.addArguments("--window-size=1920,1080");
 		
 
@@ -73,7 +73,7 @@ public class Update_Resume_Noukary {
 	Thread.sleep(2000);
 	zz.executeScript("window.scrollBy(0,300)");
 	Thread.sleep(2000);
-   File file = new File("./Resume//Naresh Resume 4+ years exp .pdf"); 
+   File file = new File("./Resume//NareshResume4yearsexp.pdf"); 
    String filePath = file.getAbsolutePath();
 
    WebElement uploadElement = driver.findElement(By.id("attachCV"));
