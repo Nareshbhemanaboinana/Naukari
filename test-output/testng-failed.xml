@@ -3,20 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Enquiry.Adding_college_level_Enquiry">
+      <class name="All_Flows.Update_Resume_Noukary">
         <methods>
-          <include name="teardown"/>
-          <include name="Creating_college_level_Enquiry"/>
-          <include name="TEEMSLOGIN"/>
+          <include name="updating_Noukary_Resume"/>
         </methods>
-      </class> <!-- Enquiry.Adding_college_level_Enquiry -->
-      <class name="Enquiry.Enrolling_Student_with_all_Modeofpayments">
-        <methods>
-          <include name="teardown"/>
-          <include name="Enrolling_with_All_ModeofPayments"/>
-          <include name="TEEMSLOGIN"/>
-        </methods>
-      </class> <!-- Enquiry.Enrolling_Student_with_all_Modeofpayments -->
+      </class> <!-- All_Flows.Update_Resume_Noukary -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -9,7 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
 
 import devAdmin.Login1;
 
@@ -69,7 +71,7 @@ public class Refund extends Login1{
      public static void EnterRefundAmount(WebDriver driver, int amount) throws InterruptedException {
      driver.findElement(By.xpath("//input[@formcontrolname='refundAmt']")).sendKeys(String.valueOf(amount));
      System.out.println("Refund Amount is"+amount);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
      }
 		
 		public static void clickSaveButton(WebDriver driver) throws InterruptedException {
@@ -149,14 +151,14 @@ public class Refund extends Login1{
 
 			zz.executeScript("window.scrollBy(0,500)");
 			Thread.sleep(2000);
+			driver.findElement(By.xpath("//input[@formcontrolname='studentId']")).sendKeys(StdntID);
 			zz.executeScript("window.scrollBy(0,500)");
 			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[text()=' Fetch ']")).click();
 			zz.executeScript("window.scrollBy(0,500)");
 			Thread.sleep(2000);
-			  WebElement refundamnt = driver.findElement(By.xpath("//input[@formcontrolname='fRefundAmt']"));
-				zz.executeScript("arguments[0].scrollIntoView()", refundamnt);
-				Thread.sleep(2000);
-
+			driver.findElement(By.xpath("(//*[text()='"+StdntID+"'])[1]")).click();
+			 /* 
 		        WebElement table = driver.findElement(By.cssSelector("table.m-t-20"));
 
 		        // Find the last row of the table
@@ -176,7 +178,7 @@ public class Refund extends Login1{
 		System.out.println("Student details not displaying ");
 	}
 
-
+*/
 		}
 		
 		public static void enteramount(WebDriver driver) {
@@ -233,6 +235,102 @@ public class Refund extends Login1{
 				           }
 
 
+
+		}
+		
+		public static void enter_amount_approving_againest(WebDriver driver,int amount ) throws InterruptedException {
+			
+			WebElement refundamnt = driver.findElement(By.xpath("//input[@formcontrolname='fRefundAmt']"));
+	        JavascriptExecutor zz = (JavascriptExecutor) driver;
+
+			zz.executeScript("arguments[0].scrollIntoView()", refundamnt);
+			Thread.sleep(2000);
+			
+			refundamnt.sendKeys(String.valueOf(amount));
+
+			
+		}
+		
+		public static void click_on_radio_button(WebDriver driver,String button ) {
+			
+			driver.findElement(By.xpath("//span[text='"+button+"']")).click();
+			
+			
+		}
+		public static void enter_remarks(WebDriver driver,String Remarks) {
+			
+			driver.findElement(By.xpath("//input[@formcontrolname='comment']")).sendKeys(Remarks);
+		}
+		
+		public static void click_approve_button(WebDriver driver) throws InterruptedException {
+			
+			driver.findElement(By.xpath("//*[text()=' Approve ']")).click();
+			
+			WebElement Approve =driver.findElement(By.xpath("//span[@class='mat-simple-snack-bar-content']"));
+			Thread.sleep(3000);
+
+					String Approve1 = Approve.getText();
+
+					     // String backgroundColor = popup.getCssValue("background-color");
+				           if (Approve1.equals("Approved Sucessfully!!!")) {
+				           	
+				           	System.out.println("Massage:"+ Approve1);
+				           }
+				           else {
+					           	System.out.println("Massage:"+ Approve1);
+						          throw new RuntimeException("Test failed because the popup message did not contain 'Successfully'.");
+
+				           }
+
+
+
+
+			
+		}
+		
+		public static void enter_student_ID(WebDriver driver,String StudentID) throws InterruptedException {
+			
+			 WebElement inputElement = driver.findElement(By.cssSelector("input[formcontrolname='studentId']"));
+		     inputElement.sendKeys(StudentID);
+		     Thread.sleep(2000);
+		 	JavascriptExecutor zz = (JavascriptExecutor) driver;
+				zz.executeScript("window.scrollBy(0,500)");
+			
+				
+		}
+		public static void click_search_button(WebDriver driver) throws InterruptedException {
+			
+			driver.findElement(By.xpath("//*[text()=' Search ']")).click();
+			  Thread.sleep(2000);
+			 	JavascriptExecutor zz = (JavascriptExecutor) driver;
+					zz.executeScript("window.scrollBy(0,500)");
+				
+			
+		}
+		
+		public static void click_profile_validate_refund_details(WebDriver driver,int Exp_RFND_AMT,String Expct_Refund_Type) throws InterruptedException {
+			
+			driver.findElement(By.xpath("//img[@src='assets/images/times/action5.png']")).click();
+			
+			Thread.sleep(15000);
+			WebDriverWait wait = new WebDriverWait(driver,20);
+
+			// Wait until the element is visible
+			WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//th[@class='ng-star-inserted'])[7]")));
+
+			// Fetch the text after ensuring the element is visible
+			String Refind_Amount = element.getText();
+
+			Thread.sleep(4000);
+		//	String Refind_Amount=driver.findElement(By.xpath("(//th[@class='ng-star-inserted'])[7]")).getText();
+			
+			String Refund_Type=driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-student-view-profile/section/div/div[2]/div/div[1]/table[3]/tr[2]/th[2]")).getText();
+			
+			SoftAssert softassert= new SoftAssert();
+			
+			softassert.assertEquals(String.valueOf(Refind_Amount), String.valueOf(Exp_RFND_AMT));
+			
+			softassert.assertEquals(Refund_Type, Expct_Refund_Type);
 
 		}
 			

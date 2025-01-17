@@ -16,11 +16,14 @@
                 <methods>
                     <include name="Enrolling_with_All_ModeofPayments"/>
                     <parameter name="Options" value="Cash"/>
-                </methods>
+     					
+  
+     </methods>
+	
             </class>
         </classes>
     </test>
-   <!--   
+     
     <test name="ParameterizedTestMethodDDCheque">
         <classes>
             <class name="Enquiry.Adding_college_level_Enquiry">
@@ -146,7 +149,7 @@
             </class>
         </classes>
     </test>
--->
+
 </suite>
 
 

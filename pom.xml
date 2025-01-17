@@ -133,8 +133,8 @@
           <version>2.22.1</version>
           <configuration>
              <suiteXmlFiles>
-                <!--   <suiteFile>resumeupdate.xml</suiteFile>-->
-                   <suiteFile>student_enroll_all_payments.xml</suiteFile>
+                   <suiteFile>resumeupdate.xml</suiteFile>
+                <!--   <suiteFile>student_enroll_all_payments.xml</suiteFile>-->
              </suiteXmlFiles>
          </configuration>       
         </plugin>

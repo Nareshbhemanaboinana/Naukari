@@ -138,7 +138,7 @@ public class PrintOriginalReceipt extends Login1{
 				String Approve1 = Approve.getText();
 
            
-    	            if (Approve1.contains("Data saved successfully!!!")) {
+    	            if (Approve1.contains("Re-printing student receipt")) {
 						System.out.println(Approve1);   
 
     	            	

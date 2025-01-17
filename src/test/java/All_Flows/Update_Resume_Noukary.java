@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -26,7 +27,13 @@ public class Update_Resume_Noukary {
 	public void updating_Noukary_Resume() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
 
-		 driver=new ChromeDriver();
+
+		  ChromeOptions options = new ChromeOptions();
+	  options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
+	        options.addArguments("--window-size=1920,1080");
+		
+
+		 driver=new ChromeDriver(options); 
        WebDriverWait wait = new WebDriverWait(driver, 15);
 
 		driver.get("https://www.naukri.com/mnjuser/homepage");
@@ -66,7 +73,7 @@ public class Update_Resume_Noukary {
 	Thread.sleep(2000);
 	zz.executeScript("window.scrollBy(0,300)");
 	Thread.sleep(2000);
-   File file = new File("./Resume//Naresh Resume 4 years exp in manual and Automation.pdf"); 
+   File file = new File("./Resume//Naresh Resume 4+ years exp .pdf"); 
    String filePath = file.getAbsolutePath();
 
    WebElement uploadElement = driver.findElement(By.id("attachCV"));

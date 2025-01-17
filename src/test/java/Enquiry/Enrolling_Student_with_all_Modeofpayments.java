@@ -22,12 +22,12 @@ public class Enrolling_Student_with_all_Modeofpayments extends Enrollement {
 	public static String firstint;
 
 	@Test(dependsOnMethods = {"Enquiry.Adding_college_level_Enquiry.Creating_college_level_Enquiry"})
-	//@Parameters({"Options"})
-	public void Enrolling_with_All_ModeofPayments() throws InterruptedException, IOException, AWTException {
+	@Parameters({"Options"})
+	public void Enrolling_with_All_ModeofPayments(String Modeofpayment) throws InterruptedException, IOException, AWTException {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		String Modeofpayment="Cash";
-		String BatchCode = "BCD01";
+	//	="Cash";
+		String BatchCode = "BDB00012";
 		Enrollement.scrollviewandclickindividualstdt(driver);
 
 		EnterEnquiryID(driver, Adding_college_level_Enquiry.id);
@@ -72,6 +72,13 @@ public class Enrolling_Student_with_all_Modeofpayments extends Enrollement {
 		
 			
 	Enrollement.Click_Print_Receipt_Save_PDF_in_Project_Reposit(driver);
+	
+	/*String[] output1 = Enrollement.verifypreviewdetails(driver, Adding_college_level_Enquiry.Subcoursename,
+			Adding_college_level_Enquiry.Name, Modeofpayment);
+	String plceofsply1 = output1[0];
+	String FormGst1 = output1[1];
+	String Bank1 = output1[2]; */
+
 
 		Enrollement.validatetheRecipt(driver,  StruntID, ReceiptNo, Adding_college_level_Enquiry.Subcoursename,
 				Adding_college_level_Enquiry.Name, Adding_college_level_Enquiry.Address1,
@@ -79,7 +86,7 @@ public class Enrolling_Student_with_all_Modeofpayments extends Enrollement {
 				Adding_college_level_Enquiry.Statename, Adding_college_level_Enquiry.Pincode,
 				Adding_college_level_Enquiry.MobileNumber, Modeofpayment, Adding_college_level_Enquiry.gst, plceofsply,
 				FormGst, BatchCode, Bank, text);
-            
+           
 	}
 
 }

@@ -42,10 +42,10 @@ public class Adding_college_level_Enquiry extends College_Enquiry {
 	public static String  MobileNumber;
 			
 
-	@Test
+    @Test  (invocationCount = 3)
 	public void Creating_college_level_Enquiry() throws InterruptedException {
-
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		// 
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Faker fk = new Faker();
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		String gstNumber = fk.regexify("[A-Z0-9]{16}"); // Example: Generate a 12-character alphanumeric string
@@ -88,7 +88,8 @@ public class Adding_college_level_Enquiry extends College_Enquiry {
 		College_Enquiry.selectdropdownbytext(driver, "Sub Course", Subcoursename);
 
 		College_Enquiry.scrollBy(driver, 0, 500);
-		College_Enquiry.scrollBy(driver, 0, 500);
+		
+		College_Enquiry.scrollBy(driver, 0, 400);
 
 		College_Enquiry.clickNextbutton(driver);
 
@@ -121,6 +122,7 @@ public class Adding_college_level_Enquiry extends College_Enquiry {
 		College_Enquiry.clicknextadd(driver);
 		
 		College_Enquiry.scrollBy(driver, 0, 500);
+		
 		College_Enquiry.scrollBy(driver, 0, 500);
 
 		College_Enquiry.clicknextad(driver);

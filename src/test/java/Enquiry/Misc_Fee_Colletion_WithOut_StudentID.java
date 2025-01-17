@@ -32,7 +32,7 @@ public class Misc_Fee_Colletion_WithOut_StudentID extends Misc_feeCollection {
 		
 		Misc_feeCollection.selectdropdownbytext(driver, "Place of Supply", " Andhra Pradesh ");
 		
-		Misc_feeCollection.selectdropdownbytext(driver, "Towards", " ISB Application - 4000 ");
+		Misc_feeCollection.selectdropdownbytext(driver, "Towards", " IIM-GDPT-TOWARDS ");
 
 		Misc_feeCollection.selectingmodeofpayment(driver, Payment);
 		

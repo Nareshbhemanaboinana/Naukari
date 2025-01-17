@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -19,9 +20,14 @@ public class Update_Resume_foundit {
 	public void updating_Foundit_Resume() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
 
-	
-		 driver=new ChromeDriver();
-		   WebDriverWait wait = new WebDriverWait(driver, (10));
+
+		  ChromeOptions options = new ChromeOptions();
+	  options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
+	        options.addArguments("--window-size=1920,1080");
+		
+
+		 driver=new ChromeDriver(options); 
+	   WebDriverWait wait = new WebDriverWait(driver, (10));
 
 		driver.get("https://www.foundit.in/rio/login");
 		driver.manage().window().maximize();

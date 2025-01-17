@@ -287,7 +287,7 @@ public class Enrollement extends Login1 {
 
 	public static void clickon_Student_Signed_On_Rules_and_Regulations(WebDriver driver) throws InterruptedException {
 
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//h5[text()=' Student Signed On Rules & Regulations ']")).click();
 
 	}

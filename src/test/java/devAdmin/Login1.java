@@ -34,15 +34,12 @@ public class Login1 {
 		System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
 	//	System.setProperty("webdriver.gecko.driver", "./SSD//geckodriver.exe");
 		//System.setProperty("webdriver.chrome.driver", "./SSD//chromedriver.exe");
-		 String downloadPath = "C:\\selenium\\downloads";
+		// String downloadPath = "C:\\selenium\\downloads";
 
-		 ChromeOptions options = new ChromeOptions();
-		 options.addArguments("--no-sandbox");
-		 options.addArguments("--disable-dev-shm-usage");
-		 options.addArguments("--disable-gpu");
-		 options.addArguments("--window-size=1920,1080");
-		 // Do NOT add headless mode unless necessary
-	     
+		  ChromeOptions options = new ChromeOptions();
+	  options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
+	        options.addArguments("--window-size=1920,1080");
+		
 
 		 driver=new ChromeDriver(options); 
 	       //  driver = new ChromeDriver();
@@ -74,7 +71,7 @@ public class Login1 {
 
 	WebElement  Login= driver.findElement(By.xpath("//input[@formcontrolname='username']"));
 	//Login.sendKeys(uid);
-	Login.sendKeys("Jaipur_Office-I");
+	Login.sendKeys("Ajmer_Office-I");
 
 	WebElement  pswd= driver.findElement(By.xpath("//input[@formcontrolname='password']"));
 			pswd.sendKeys("Test@1231");

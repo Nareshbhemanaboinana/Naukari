@@ -19,14 +19,16 @@ public class Enrolling_Student extends Enrollement {
 	public static String ReceiptNo;
 
 	public static String firstint;
+	
+	public static String Modeofpayment = "DD/Cheque";
+	
+	public static String BatchCode = "BDB00012";
 
-	@Test(dependsOnMethods = { "Enquiry.Adding_college_level_Enquiry.Creating_college_level_Enquiry" })
+
+	@Test(dependsOnMethods = { "Enquiry.Adding_college_level_Enquiry.Creating_college_level_Enquiry" })	
 	public void Enrolling() throws InterruptedException, IOException, AWTException {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-		String Modeofpayment = "DD/Cheque";
-
-		String BatchCode = "BCD01";
+		
 		Enrollement.scrollviewandclickindividualstdt(driver);
 
 		EnterEnquiryID(driver, Adding_college_level_Enquiry.id);
@@ -75,8 +77,7 @@ public class Enrolling_Student extends Enrollement {
 		StruntID = Results[0];
 		ReceiptNo = Results[1];
 
-		driver.findElement(By.xpath("//button[text()='Print Receipt']")).click();
-
+		
 		Subsequent.Click_Print_Receipt_Button(driver);
 
 		/* Enrollement.Click_Print_Receipt_Save_PDF_in_Project_Reposit(driver);
